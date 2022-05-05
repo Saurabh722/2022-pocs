@@ -1,0 +1,131 @@
+.audit-page {
+  margin: 0;
+  padding: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+  .audit-page h1 {
+    color: #00bcd4;
+    text-align: center;
+    margin: 5px 0 20px;
+    line-height: 50px;
+    border-bottom: 2px solid #00bcd4; }
+  .audit-page ul {
+    list-style: none; }
+  .audit-page #audit-view .image-line-block {
+    height: 20px;
+    width: 98%;
+    min-width: 1200px;
+    margin-top: 20px;
+    background-size: 1250px auto;
+    background-position: -61px -45px;
+    background-repeat: no-repeat; }
+    .audit-page #audit-view .image-line-block .img-align {
+      float: right;
+      margin-right: -24px; }
+    .audit-page #audit-view .image-line-block .img-align button,
+    .audit-page #audit-view .image-line-block .index-lbl {
+      color: #fff;
+      background: rgba(47, 174, 212, 0.55);
+      width: 20px;
+      height: 20px;
+      margin: 0 2px 2px;
+      padding: 0;
+      display: inline-block;
+      border-radius: 50%;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 12px;
+      outline: none; }
+    .audit-page #audit-view .image-line-block .index-lbl {
+      color: #1d251d;
+      margin-left: -24px;
+      background: rgba(255, 0, 94, 0.55);
+      height: 17px;
+      padding-top: 3px; }
+      .audit-page #audit-view .image-line-block .index-lbl.done {
+        color: #fff;
+        background: rgba(29, 105, 31, 0.55); }
+        .audit-page #audit-view .image-line-block .index-lbl.done:hover {
+          cursor: pointer;
+          -webkit-box-shadow: 0 0 5px #aaa;
+                  box-shadow: 0 0 5px #aaa;
+          outline: none; }
+  .audit-page #audit-view textarea {
+    height: 24px;
+    width: 99%;
+    min-width: 1200px;
+    font-size: 17px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    letter-spacing: 0.5px;
+    resize: none; }
+    .audit-page #audit-view textarea[disabled] {
+      background: #eee; }
+  .audit-page #input-area,
+  .audit-page #input-img,
+  .audit-page #input-fileNo {
+    font-size: 16px;
+    width: 99%;
+    padding: 5px;
+    resize: none;
+    min-height: 40px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 0 0 5px #aaa, inset 0 0 5px #aaa;
+            box-shadow: 0 0 5px #aaa, inset 0 0 5px #aaa;
+    border: 1px solid #aaa;
+    outline: none; }
+  .audit-page #input-fileNo {
+    width: 160px;
+    margin-bottom: 10px; }
+  .audit-page #input-area {
+    display: none;
+    height: 600px; }
+
+#adjust-fontsize {
+  float: right;
+  font-size: 14px;
+  width: 117px;
+  font-weight: normal;
+  margin-right: 10px; }
+  #adjust-fontsize button {
+    color: #fff;
+    background: rgba(17, 156, 11, 0.55);
+    width: 20px;
+    height: 20px;
+    margin: 0 2px 2px;
+    padding: 0;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer; }
+    #adjust-fontsize button:hover {
+      -webkit-box-shadow: 0 0 5px #aaa;
+              box-shadow: 0 0 5px #aaa; }
+
+.controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .controls button {
+    display: none;
+    color: #fff;
+    font-size: 16px;
+    height: 36px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    background: rgba(95, 181, 95, 0.92); }
+    .controls button:hover {
+      -webkit-box-shadow: 0 0 5px #aaa;
+              box-shadow: 0 0 5px #aaa; }

@@ -1,0 +1,86 @@
+.typeContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: black;
+    .typewriter {
+        display: flex;
+        align-items: center;
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            &.firstline {
+                top: 15%;
+            }
+        }
+        h1 {
+            font-family: monospace;
+            width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            font-size: 4em;
+            color: white;
+        }
+    }
+    &.type-animation {
+        .typewriter h1 {
+            width: 100%;
+            border-right: .15em solid black;
+            animation: typing 3.5s steps(30, end), blinking-cursor .5s step-end infinite;
+        }
+    }
+    &.type-multiline-animation {
+        .typewriter h1 {
+            width: 0;
+            border-right: .15em solid transparent;
+        }
+        .firstline h1 {
+            border-right: .15em solid black;
+            animation: typing 3.5s steps(30, end), hide-cursor 0s ease-in 4s, blinking-cursor .5s step-end infinite;
+            animation-fill-mode: forwards;
+        }
+        .typewriter {
+            @for $i from 2 through 10 {
+                .container:nth-child(#{$i}) {
+                    top: 15% * $i;
+                    h1 {
+                        animation: typing 3.5s steps(30, end) #{4*($i - 1)}s,
+                        hide-cursor 0s ease-in #{4* $i}s,
+                        blinking-cursor .5s step-end #{4*($i - 1)}s infinite;
+                        animation-fill-mode: forwards;
+                    }
+                }
+            }
+        }
+    }
+    @keyframes hide-cursor {
+        from,
+        to {
+            border: 0
+        }
+    }
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%
+        }
+    }
+    /* The typewriter cursor effect */
+    @keyframes blinking-cursor {
+        from,
+        to {
+            border-color: transparent
+        }
+        50% {
+            border-color: white;
+        }
+    }
+}

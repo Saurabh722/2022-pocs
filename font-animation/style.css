@@ -1,0 +1,321 @@
+@font-face {
+    font-family: comicAndy;
+    src: url(fonts/TooneyNoodleNF.ttf);
+}
+
+body {
+    background: #000;
+}
+
+[class^="ch-"]{
+    background: url(https://humaan.com/wp-content/themes/humaan/case-study-assets/_hero/finbar.jpg);
+}
+
+.ch-a {
+    background: url(https://humaan.com/wp-content/themes/humaan/case-study-assets/_hero/finbar.jpg);
+}
+
+.ch-b {
+    background: url(https://humaan.com/wp-content/themes/humaan/case-study-assets/_hero/rottnest.jpg);
+}
+
+.ch-c {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Background-Color-539.jpg);
+}
+
+.ch-d {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Background-Pictures-A91.jpg);
+}
+
+.ch-e {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Hd-Background-406.jpg);
+}
+
+.ch-f {
+    background: url(http://verdewall.com/wp-content/uploads/2017/07/Background-Tumblr-5H2.jpg);
+}
+
+.ch-g {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Hd-Backgrounds-2HA.jpg);
+}
+
+.ch-h {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Vector-Background-319.jpg);
+}
+
+.ch-i {
+    background: url(http://verdewall.com/wp-content/uploads/2017/07/Background-Tumblr-5H2.jpg);
+}
+
+.ch-j {
+    background: url(http://kb4images.com/images/free-images/36934382-free-images.jpg);
+}
+
+.ch-k {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Background-Pictures-5AD.jpg);
+}
+
+.ch-l {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Backgrounds-9BC.jpg);
+}
+
+.ch-m {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Background-Pictures-A91.jpg);
+}
+
+.ch-n {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Vector-Background-319.jpg);
+}
+
+.ch-o {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Hd-Backgrounds-2HA.jpg);
+}
+
+.ch-p {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Backgrounds-8B6.jpg);
+}
+
+.ch-q {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Background-Image-73G-2.jpg);
+}
+
+.ch-r {
+    background: url(https://humaan.com/wp-content/themes/humaan/case-study-assets/_hero/sodashi.jpg);
+}
+
+.ch-s {
+    background: url(https://humaan.com/wp-content/themes/humaan/case-study-assets/_hero/met.jpg);
+}
+
+.ch-t {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Background-Color-539.jpg);
+}
+
+.ch-u {
+    background: url(http://verdewall.com/wp-content/uploads/2016/11/Love-Quotes-377.jpg);
+}
+
+.ch-v {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Background-Images-4H9.jpg);
+}
+
+.ch-w {
+    background: url(http://verdewall.com/wp-content/uploads/2017/07/Background-Tumblr-5H2.jpg);
+}
+
+.ch-x {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Hd-Background-800.jpg);
+}
+
+.ch-y {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Desktop-Images-497.jpg);
+}
+
+.ch-z {
+    background: url(http://verdewall.com/wp-content/uploads/2016/08/Hd-Background-406.jpg);
+}
+
+.bg-1 {
+    background: url(https://wallpapertag.com/wallpaper/full/b/3/6/143778-amazing-black-and-white-striped-background-1920x1080-windows-xp.jpg);
+    animation-name: gradientAnimation;
+    animation-iteration-count: infinite;
+    animation-duration: 60s;
+    animation-timing-function: linear;
+    background-size: 100% 600%;
+}
+
+.ch-a:after {
+    content: 'A';
+}
+
+.ch-b:after {
+    content: 'B';
+}
+
+.ch-c:after {
+    content: 'C';
+}
+
+.ch-d:after {
+    content: 'D';
+}
+
+.ch-e:after {
+    content: 'E';
+}
+
+.ch-f:after {
+    content: 'F';
+}
+
+.ch-g:after {
+    content: 'G';
+}
+
+.ch-h:after {
+    content: 'H';
+}
+
+.ch-i:after {
+    content: 'I';
+}
+
+.ch-j:after {
+    content: 'J';
+}
+
+.ch-k:after {
+    content: 'K';
+}
+
+.ch-l:after {
+    content: 'L';
+}
+
+.ch-m:after {
+    content: 'M';
+}
+
+.ch-n:after {
+    content: 'N';
+}
+
+.ch-o:after {
+    content: 'O';
+}
+
+.ch-p:after {
+    content: 'P';
+}
+
+.ch-q:after {
+    content: 'Q';
+}
+
+.ch-r:after {
+    content: 'R';
+}
+
+.ch-s:after {
+    content: 'S';
+}
+
+.ch-t:after {
+    content: 'T';
+}
+
+.ch-u:after {
+    content: 'U';
+}
+
+.ch-v:after {
+    content: 'V';
+}
+
+.ch-w:after {
+    content: 'W';
+}
+
+.ch-x:after {
+    content: 'X';
+}
+
+.ch-y:after {
+    content: 'Y';
+}
+
+.ch-z:after {
+    content: 'Z';
+}
+
+.char-style,
+.text-style,
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(0);
+    z-index: 300;
+    width: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    opacity: 1;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    cursor: pointer;
+}
+
+.char-style {
+    font-size: 20em;
+    background-size: auto;
+    -webkit-text-stroke: 0.08em transparent;
+    background-position: 0 20%;
+}
+
+.text-style {
+    font-size: 14em;
+}
+
+.rotate-and-sink {
+    transition: -webkit-text-stroke 2s;
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    animation-name: rotateAndSink;
+    animation-timing-function: linear;
+}
+
+.bg-animation {
+    animation-name: imageAnimation;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+}
+
+.shadow-effect {
+    text-shadow: 0 0 200px transparent;
+    animation-iteration-count: 1;
+    animation-duration: 5s;
+    animation-name: shadowAnimation;
+    animation-timing-function: linear;
+    background: none;
+}
+
+@keyframes rotateAndSink {
+    0% { 
+        font-size: 300px;
+        transform: translate(-50%, -50%) rotateZ(0deg);
+    }
+    50% { 
+        font-size: 30px;
+    }
+    100% {
+        font-size: 300px;
+        transform: translate(-50%, -50%) rotateZ(360deg);
+    }
+}
+
+@keyframes imageAnimation {
+    0%{background-position: 0 0;}
+    20%{background-position: 40% 20%;}
+    40%{background-position: 60% 60%;}
+    60%{background-position: 40% 20%;}
+    80%{background-position: 20% 20%;}
+    100%{background-position: 0 0;}
+}
+
+@keyframes gradientAnimation {
+    0%{background-position: 0 0%;}
+    20%{background-position: 0 150%;}
+    40%{background-position: 300% 300%;}
+    60%{background-position: 450% 300%;}
+    80%{background-position: 600% 600%;}
+    100%{background-position: 0 0;}
+}
+
+@keyframes shadowAnimation {
+    0%{text-shadow: 0 0 200px #ff0000;;}
+    100%{text-shadow: 0 0 0 #ff0000;;}
+}

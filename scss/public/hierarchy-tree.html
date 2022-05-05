@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>My Site</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bundle.css">
+	<style>
+		#base-hierarchy li {
+			margin-left: -3px;
+		}
+
+		#base-hierarchy li a {
+			z-index: 5;
+		}
+	</style>
+</head>
+
+<body class="fabric pink">
+	<div class="dialog" id="vs-overlay">
+		<h1>SCSS Base hierarchy</h1>
+		<div id="scss-files" class="tree">
+			<div id="base-hierarchy">
+				<ul>
+					<li>
+						<a>Templates</a>
+						<ul>
+							<li>
+								<a>Generic</a>
+								<ul>
+									<li>
+										<a>font-faces</a>
+									</li>
+									<li>
+										<a>variables</a>
+										<ul>
+											<li>
+												<a>brand-name</a>
+											</li>
+											<li>
+												<a>colors</a>
+											</li>
+											<li>
+												<a>spacing</a>
+											</li>
+											<li>
+												<a>breakpoints</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a>Mixins</a>
+										<ul>
+											<li>
+												<a>mixins</a>
+											</li>
+											<li>
+												<a>functions</a>
+											</li>
+											<li>
+												<a>placeholders</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a>Reset</a>
+							</li>
+							<li>
+								<a>Layouts</a>
+							</li>
+							<li>
+								<a>Elements</a>
+							</li>
+							<li>
+								<a>Components</a>
+							</li>
+							<li>
+								<a>Utilities</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

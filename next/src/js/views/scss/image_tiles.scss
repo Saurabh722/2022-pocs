@@ -1,0 +1,77 @@
+.image-tile-container {
+	.tile-container { 
+		float: left;
+		margin: 5%;
+		width: 90%;
+		height: 476px;
+
+		.pixel {
+			background: url(http://cdn2-www.superherohype.com/assets/uploads/2013/11/batmane3-1.jpg);
+		}
+
+		.pixel {
+			z-index: 300;
+			width: 100%;
+			margin: 0;
+			font-family: sans-serif;
+			font-weight: bolder;
+			text-align: center;
+			opacity: 1;
+			background-clip: text;
+			-webkit-background-clip: text;
+			color: transparent;
+			cursor: pointer;
+			font-size: 50px;
+			line-height: 28px;
+			letter-spacing: -12px;
+			background-size: auto;
+			-webkit-text-stroke: 0.08em transparent;
+			background-position: 0 0;
+			display: flex;
+			flex-wrap: wrap;
+
+			.unit {
+				background: black;
+
+				transition: background 1000ms;
+
+				&:nth-child(3n) {
+					transition: background 2000ms;
+				}
+
+				&:nth-child(4n) {
+					transition: background 500ms;
+				}
+
+				&:nth-child(5n) {
+					transition: background 600ms;
+				}
+
+				&:nth-child(7n) {
+					transition: background 3000ms;
+				}
+
+				&:before {
+					content: '\25FC';
+				}
+			}
+
+			@keyframes flip-tiles {
+				0% { 
+					transform: rotateY(180deg);
+				}
+				50% { 
+					background: transparent;
+				}
+				100% {
+					background: transparent;
+					transform: rotateY(0deg);
+				}
+			}
+
+			&:hover .unit {
+				background: transparent;
+			}
+		}
+	}
+}

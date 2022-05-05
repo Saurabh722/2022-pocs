@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSS Presentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bundle.css">
+	<style>
+		.btn {
+			position: fixed;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100px;
+			height: 100px;
+			z-index: 10;
+			bottom: 0;
+			color: rgba(0, 149, 136, 0.1);
+			cursor: pointer;
+			font-size: 30px;
+		}
+
+		.btn:hover {
+			color: rgba(0, 149, 136, 0.5);
+		}
+
+		.right {
+			right: 0;
+		}
+	</style>
+</head>
+
+<body class="fabric">
+	<div id="presentation">
+		<ul>
+			<li class="active" data-page="home">
+				<iframe src="/html.html"></iframe>
+			</li>
+			<li class="next" data-page="css">
+				<iframe src="/css.html"></iframe>
+			</li>
+			<li class="next" data-page="form-intro">
+				<iframe src="/form-intro.html"></iframe>
+			</li>
+			<li class="next" data-page="form">
+				<iframe src="/form.html"></iframe>
+			</li>
+			<li class="next" data-page="scss">
+				<iframe src="/scss.html"></iframe>
+			</li>
+			<li class="next" data-page="icons">
+				<iframe src="/icons-intro.html"></iframe>
+			</li>
+			<li class="next" data-page="animation">
+				<iframe src="/animation.html"></iframe>
+			</li>
+			<li class="next" data-page="responsive-intro">
+				<iframe src="/responsive-intro.html"></iframe>
+			</li>
+			<li class="next" data-page="strategy">
+				<iframe src="/strategy.html"></iframe>
+			</li>
+			<li class="next" data-page="includeStyle">
+				<iframe src="/includeStyle.html"></iframe>
+			</li>
+			<li class="next" data-page="which_strategy">
+				<iframe src="/which_strategy.html"></iframe>
+			</li>
+			<li class="next" data-page="5s">
+					<iframe src="/5S.html"></iframe>
+				</li>
+			<li class="next" data-page="scss-hierarchy-intro">
+				<iframe src="/scss-hierarchy-intro.html"></iframe>
+			</li>
+			<li class="next" data-page="hierarchy-tree">
+				<iframe src="/hierarchy-tree.html"></iframe>
+			</li>
+			<li class="next" data-page="scss-hierarchy">
+				<iframe src="/scss-hierarchy.html"></iframe>
+			</li>
+			<li class="next" data-page="thanks">
+				<iframe src="/thanks.html"></iframe>
+			</li>
+		</ul>
+		<a class="btn left">&#10094;</a>
+		<a class="btn right">&#10095;</a>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script>
+		function moveForward () {
+			var $active = $(".active");
+
+			if ($active.is(':last-child')) return;
+			location.hash = $active.next().data("page");
+
+			$active.addClass("prev");
+			$active.next().addClass("active").removeClass("next");
+			$active.removeClass("active");
+		}
+
+		function moveBackward() {
+			var $active = $(".active");
+
+			if ($active.is(':first-child')) return;
+			location.hash = $active.prev().data("page")
+
+			$active.addClass("next");
+			$active.prev().addClass("active").removeClass("prev");;
+			$active.removeClass("active");
+		}
+
+		function print_arrow_key(keyCodeNumber) {
+			console.log(keyCodeNumber);
+			var LEFT = 37,
+				UP = 38,
+				RIGHT = 39,
+				DOWN = 40;
+
+			switch (keyCodeNumber) {
+				case LEFT:
+					moveBackward();
+					break;
+				case UP:
+					break;
+				case RIGHT:
+					moveForward();
+					break;
+				case DOWN:
+					break;
+				default:
+					break;
+			}
+		}
+
+		function checkKeycode(event) {
+			var keyDownEvent = event || window.event,
+				keycode = (keyDownEvent.which) ? keyDownEvent.which : keyDownEvent.keyCode;
+
+			print_arrow_key(keycode);
+
+			return false;
+		}
+
+		document.onkeydown = checkKeycode;
+
+		$(function(){
+			$(".btn.left").click(moveBackward);
+			$(".btn.right").click(moveForward);
+		});
+	</script>
+</body>
+
+</html>

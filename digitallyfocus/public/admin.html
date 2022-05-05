@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Admin Setting</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		h3 {
+			padding: 10px;
+			text-align: center;
+			color: #1d5975;
+			border-bottom: 1px solid #1d5975;
+			margin-bottom: 20px;
+		}
+
+		ul {
+			display: flex;
+			flex-direction: column;
+			padding: 10px;
+			margin: 10px;
+			border: 1px solid #aaa;
+			list-style: none;
+			border-radius: 5px;
+			background: rgba(29, 89, 117, 0.2);
+			box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+		}
+
+		h4, label {
+			text-transform: capitalize;
+		}
+
+		li {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 3px;
+		}
+
+		li.sub-fields {
+			flex-direction: column;
+			order: 10;
+		}
+
+		input[type="text"],
+		input[type="password"] {
+			padding: 5px 10px;
+			width: 70%;
+			height: 19px;
+			border: 1px solid #aaa;
+			border-radius: 5px;
+			box-shadow: inset 0 0 5px #aaa;
+		}
+
+		#form-submit {
+			display: block;
+			width: 30%;
+			padding: 10px;
+			border: 1px solid #aaa;
+			margin: 10px auto;
+			font-size: 20px;
+			border-radius: 5px;
+			cursor: pointer;
+			background: rgba(29, 89, 117, 0.2);
+		}
+
+		#form-view {
+			display: none;
+		}
+
+		#login-view ul {
+			max-width: 300px;
+			margin: 15% auto;
+			border-radius: 5px;
+			box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+		}
+
+		#login-view li {
+			margin: 10px;
+		}
+
+		#login_btn {
+			padding: 5px 15px;
+			border: 1px solid #aaa;
+			margin: 10px auto;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+			background: rgba(29, 89, 117, 0.2);
+		}
+
+		#login_btn:hover,
+		#form-submit:hover {
+			color: #fff;
+			background: rgba(29, 89, 117, 0.8);
+		}
+	</style>
+</head>
+
+<body class="responsive">
+	<h3>Admin Setting</h3>
+	<div id="login-view">
+		<ul>
+			<li><label>Email:</label> <input type="text" id="next_email" value="" placeholder="Email"></li>
+			<li><label>Password:</label> <input type="password" id="next_password" value="" placeholder="Password"></li>
+			<li><input type="button" value="Login" id="login_btn"/></li>
+		</ul>
+		
+	</div>
+	<div id="form-view">
+		<form id="admin-form"></form>
+		<input type="button" value="Submit" id="form-submit"/>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script>
+		function getField(key, value) {
+			return `<label>${key}:</label> <input type="text" name="${key}" value="${value}">`;
+		}
+
+		function generateFields(data) {
+			let fieldView = "";
+			for(const key in data) {
+				if (data.hasOwnProperty(key)) {
+					if(typeof data[key] !== "object") {
+						fieldView += `<li>${getField(key, data[key])}</li>`;
+					} else {
+						fieldView += `<li class="sub-fields" title="${key}"><h4>${key}:</h4><ul>${generateFields(data[key])}</ul></li>`;
+					}
+				}
+			}
+
+			return fieldView;
+		}
+
+		function generateForm(data) {
+			const $formView = $(`<ul id="main-form"/>`);
+			$formView.append(generateFields(data));
+			$("#admin-form").append($formView);
+		}
+
+		function getFieldData($input) {
+			return `{"${$input.attr("name")}": "${$input.val()}"}`;
+		}
+
+		function getGroupData($list) {
+			const dataObj = {};
+			$list.each(function() {
+				const $self = $(this);
+				if ($self.hasClass("sub-fields")) {
+					dataObj[$self.attr("title")] = getGroupData($self.find(">ul>li"));
+				} else {
+					const $input = $self.find("input");
+					dataObj[$input.attr("name")] = $input.val();
+				}
+			});
+
+			return dataObj;
+		}
+
+		function generateData() {
+			const $formView = $("#main-form");
+			const formData = getGroupData($formView.find(">li"));
+			return JSON.stringify(formData, null, "\t");
+		}
+
+
+// --------------------------------------------------------------------------------------//
+		function saveData(token) {
+			const updatedData = generateData();
+			console.log(updatedData);
+			$.ajax({
+				url: "https://helping-hands-ad3c1.firebaseio.com/data/.json?auth=" + token,
+				type: 'PUT',
+				data: updatedData,
+				success: function(data) {
+					console.log(data);
+				}
+			});
+		}
+
+		function login(loginOnly) {
+			$.ajax({
+				url: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBqg-PG_svEQ32QLYr16zZ3LLt99xgMBUg",
+				type: 'POST',
+				data: {
+					"email": next_email.value,
+					"password": next_password.value,
+					"returnSecureToken": true
+				},
+				success: function(data) {
+					console.log(data);
+					if(loginOnly) {
+						$("#login-view").hide();
+						getData();
+					} else {
+						saveData(data.idToken);
+					}
+				}
+			});
+		}
+
+		function getData() {
+			$.ajax({
+				url: "https://helping-hands-ad3c1.firebaseio.com/data.json",
+				type: 'GET',
+				success: function(data) {
+					console.log(data);
+					generateForm(data);
+					$("#form-view").show();
+				}
+			});
+
+			$("#form-submit").click(function() {
+				login(false);
+			});
+		}
+
+		login_btn.onclick = function() {
+			login(true);
+		}
+	</script>
+</body>
+
+</html>

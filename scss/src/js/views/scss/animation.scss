@@ -1,0 +1,391 @@
+.animation {
+    .mainContainer {
+        width: 100%;
+        min-height: 800px;
+        background: #fff;
+        -webkit-transform-style: preserve-3d;
+    }
+    .viewContainer {
+        float: left;
+        width: 800px;
+        height: 410px;
+        margin: 0 auto;
+    }
+    .baseFrame {
+        -webkit-perspective: 2400;
+        float: left;
+        width: 1024px;
+        height: 400px;
+        margin: 0 auto;
+        -webkit-perspective-origin: 30px -250px;
+    }
+    ul.mainFrame {
+        top: 20px;
+        width: 200px;
+        position: relative;
+        padding: 0;
+        list-style: none;
+        margin: 0 auto;
+        height: 400px;
+        -webkit-transform-style: preserve-3d;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-duration: 30s;
+        -webkit-animation-timing-function: linear;
+        transition: all 2s ease;
+    }
+    ul li {
+        width: 180px;
+        height: 110px;
+        position: absolute;
+        font-size: 22px;
+        display: block;
+        border: 1px solid #C68E17;
+        padding-top: 70px;
+        color: #eeeeee;
+        text-align: center;
+        -webkit-transform-style: preserve-3d;
+        transition: all 2s ease;
+        &.roof {
+            background: #AFC7C7;
+        }
+        &.ground {
+            display: none;
+            width: 400px;
+            height: 330px;
+            background: #41A317;
+            transition: all 7s ease;
+            .groundGrass {
+                margin-left: 286px;
+                margin-top: 84px;
+                width: 110px;
+                height: 90px;
+                border-top: 0px;
+                background: #817339;
+                border: 2px solid #347C17
+            }
+        }
+        &.frontTop {
+            width: 0px;
+            height: 0px;
+            border: 0px;
+            border-left: 92px solid transparent;
+            border-right: 92px solid transparent;
+            background: transparent;
+            border-bottom: 54px solid #C7A317;
+            transition: all 7.5s ease;
+        }
+        &.backTop {
+            width: 0px;
+            height: 0px;
+            border: 0px;
+            border-left: 92px solid transparent;
+            border-right: 92px solid transparent;
+            background: transparent;
+            border-bottom: 54px solid #C7A317;
+            transition: all 8s ease;
+        }
+        &.leftWall {
+            border-top: 24px;
+            background: #C7A317;
+            transition: all 8.5s ease;
+        }
+        &.frontWall {
+            padding-top: 0;
+            width: 94px;
+            height: 150px;
+            border-top: 30px solid #C7A317;
+            border-left: 43px solid #C7A317;
+            border-right: 43px solid #C7A317;
+            background: transparent;
+            transition: all 9s ease;
+        }
+        &.rightWall {
+            height: 66px;
+            width: 76px;
+            background: transparent;
+            border-top: 50px solid #C7A317;
+            border-left: 54px solid #C7A317;
+            border-right: 52px solid #C7A317;
+            border-bottom: 65px solid #C7A317;
+            padding: 0px;
+            transition: all 9.5s ease;
+        }
+        &.backWall {
+            border-top: 0px;
+            background: #C7A317;
+            transition: all 10s ease;
+        }
+        &.topLeftRoof {
+            border: 1px solid #7E3517;
+            background: #AF7817;
+            width: 220px;
+            height: 73px;
+            transition: all 10.5s ease;
+        }
+        &.topRightRoof {
+            border: 1px solid #7E3517;
+            background: #AF7817;
+            width: 220px;
+            height: 73px;
+            transition: all 11s ease;
+        }
+        &.side-wall {
+            display: none;
+            border-top: 2px solid #7E3517;
+            padding-top: 0px;
+            background: #AF7817;
+            transition: all 11.5s ease;
+        }
+        &.leftSideWall {
+            width: 400px;
+            height: 40px;
+            transition: all 12s ease;
+        }
+        &.frontSideWallL {
+            border-right: 2px solid #7E3517;
+            width: 150px;
+            height: 40px;
+            transition: all 12.5s ease;
+        }
+        &.frontSideWallR {
+            border-left: 2px solid #7E3517;
+            width: 150px;
+            height: 40px;
+            transition: all 13s ease;
+        }
+        &.frontWallfiller {
+            padding: 0px;
+            border: 0px;
+            height: 30px;
+            background: #C7A317;
+            transition: all 14s ease;
+        }
+        &.rightSideWall {
+            width: 400px;
+            height: 40px;
+            transition: all 15s ease;
+        }
+        &.backSideWall {
+            width: 400px;
+            height: 40px;
+            transition: all 16s ease;
+        }
+        &.bed {
+            border: 0;
+            padding: 0px;
+            height: 16px;
+            background: #7F462C;
+            transition: all 17s ease;
+        }
+        &.bedBackWall,
+        &.bedfrontWall {
+            width: 130px;
+        }
+        &.bedLeftWall,
+        &.bedRightWall {
+            width: 80px;
+        }
+        &.bedbase {
+            padding: 0px;
+            width: 80px;
+            height: 130px;
+            background: #7F462C;
+        }
+        .door,
+        .window-door {
+            background: transparent;
+            border: 2px solid #7E3117;
+            -webkit-transform-style: preserve-3d;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-duration: 10s;
+            -webkit-animation-timing-function: linear;
+            transition: all 18s ease;
+        }
+        .door {
+            width: 41px;
+            height: 120px;
+        }
+        .window-door {
+            width: 32px;
+            height: 62px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        .door-left,
+        .window-door-left {
+            float: left;
+        }
+        .door-right,
+        .window-door-right {
+            float: right;
+        }
+        .glassBox {
+            background: #806517;
+            height: 38px;
+            border-bottom: 2px solid #7E3117;
+            opacity: 0.8;
+        }
+        .photoFrame {
+            padding: 0px;
+            margin-left: 40px;
+            width: 48px;
+            height: 43px;
+            border: 5px solid #7F5A58;
+            -webkit-transform: rotateY(180deg);
+            -webkit-backface-visibility: hidden;
+        }
+        .window {
+            float: left;
+            padding: 0px;
+            margin-left: 0px;
+            width: 72px;
+            height: 62px;
+            border: 3px solid #8A4117;
+        }
+        .doorBorder {
+            margin-left: 0px;
+            margin-top: 25px;
+            width: 90px;
+            height: 120px;
+            border-top: 0px;
+            background: transparent;
+            border: 2px solid #7E2217;
+            border-bottom: 0px;
+        }
+    }
+    ul.mainFrame:hover {
+        top: 100px;
+        -webkit-animation-name: rotateMe;
+        li {
+            &.roof {
+                -webkit-transform: rotateX(90deg) translateX(0px) translateY(0px) translateZ(-270px);
+            }
+            &.ground {
+                -webkit-transform: rotateX(90deg) translateX(-110px) translateY(0px) translateZ(-160px);
+            }
+            &.frontTop {
+                -webkit-transform: rotateY(90deg) translateY(58px) translateZ(88px);
+            }
+            &.backTop {
+                -webkit-transform: rotateY(90deg) translateY(58px) translateZ(-90px);
+            }
+            &.leftWall {
+                -webkit-transform: rotateY(0deg) translateY(180px) translateZ(90px);
+            }
+            &.frontWall {
+                -webkit-transform: rotateY(90deg) translateY(180px) translateZ(90px);
+            }
+            &.rightWall {
+                -webkit-transform: rotateY(180deg) translateY(180px) translateZ(90px);
+            }
+            &.backWall {
+                -webkit-transform: rotateY(270deg) translateY(180px) translateZ(90px);
+            }
+            &.topLeftRoof {
+                -webkit-transform: rotateX(60deg) translateX(-20px) translateY(100px) translateZ(-48px);
+            }
+            &.topRightRoof {
+                -webkit-transform: rotateX(-60deg) translateX(-20px) translateY(100px) translateZ(48px);
+            }
+            &.leftSideWall {
+                -webkit-transform: rotateY(0deg) translateX(-110px) translateY(318px) translateZ(200px);
+            }
+            &.frontSideWallL {
+                -webkit-transform: rotateY(90deg) translateX(-125px) translateY(318px) translateZ(216px);
+            }
+            &.frontSideWallR {
+                -webkit-transform: rotateY(90deg) translateX(125px) translateY(318px) translateZ(216px);
+            }
+            &.frontWallfiller {
+                -webkit-transform: rotateY(90deg) translateY(205px) translateZ(90px);
+            }
+            &.rightSideWall {
+                -webkit-transform: rotateY(180deg) translateX(110px) translateY(318px) translateZ(200px);
+            }
+            &.backSideWall {
+                -webkit-transform: rotateY(270deg) translateX(0px) translateY(318px) translateZ(310px);
+            }
+            &.bedBackWall {
+                -webkit-transform: rotateY(270deg) translateX(17px) translateY(344px) translateZ(62px);
+            }
+            &.bedfrontWall {
+                -webkit-transform: rotateY(90deg) translateX(-17px) translateY(344px) translateZ(16px);
+            }
+            &.bedLeftWall {
+                -webkit-transform: rotateY(0deg) translateX(0px) translateY(344px) translateZ(82px);
+            }
+            &.bedRightWall {
+                -webkit-transform: rotateY(180deg) translateX(0px) translateY(344px) translateZ(48px);
+            }
+            &.bedbase {
+                -webkit-transform: rotateX(90deg) translateX(0px) translateY(16px) translateZ(-278px);
+            }
+            .door-left,
+            .window-door-left {
+                -webkit-animation-name: openLeft;
+            }
+            .door-right,
+            .window-door-right {
+                -webkit-animation-name: openRight;
+            }
+        }
+    }
+    @-webkit-keyframes rotateMe {
+        0% {
+            -webkit-transform: rotateY(0deg);
+        }
+        100% {
+            -webkit-transform: rotateY(-360deg);
+        }
+    }
+    @-webkit-keyframes openLeft {
+        0% {
+            -webkit-transform: rotateY(0deg) translateY(0px) translateZ(0px);
+        }
+        30% {
+            -webkit-transform: rotateY(0deg) translateY(0px) translateZ(0px);
+        }
+        50% {
+            -webkit-transform: rotateY(-120deg) translateX(34px) translateY(0px) translateZ(20px);
+        }
+        80% {
+            -webkit-transform: rotateY(-120deg) translateX(34px) translateY(0px) translateZ(20px);
+        }
+        100% {
+            -webkit-transform: rotateY(0deg) translateY(0px) translateZ(0px);
+        }
+    }
+    @-webkit-keyframes openRight {
+        0% {
+            -webkit-transform: rotateY(0deg) translateY(0px) translateZ(0px);
+        }
+        30% {
+            -webkit-transform: rotateY(0deg) translateY(0px) translateZ(0px);
+        }
+        50% {
+            -webkit-transform: rotateY(120deg) translateX(-34px) translateY(0px) translateZ(20px);
+        }
+        80% {
+            -webkit-transform: rotateY(120deg) translateX(-34px) translateY(0px) translateZ(20px);
+        }
+        100% {
+            -webkit-transform: rotateY(0deg) translateY(0px) translateZ(0px);
+        }
+    }
+    @-webkit-keyframes moveMe {
+        0% {
+            top: 100px;
+            left: 0px;
+            background: #fff;
+            border: 1px solid #ffffff;
+        }
+        50% {
+            top: -20px;
+        }
+        100% {
+            left: 100%;
+            top: 100px;
+            background: #FBB917;
+            border: 1px solid #F88017;
+        }
+    }
+}

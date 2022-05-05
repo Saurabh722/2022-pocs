@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+      <meta charset="UTF-8">
+      <title>Text Animation</title>
+      <link rel="stylesheet" href="style.css" media="screen">
+    </head>
+
+    <body>
+      <!-- <a class="text-style bg-1">SEPHORA</a> -->
+      <!-- <a class="text-style shadow-effect">SAURABH</a> -->
+      <!-- <a class="char-style bg-animation ch-a">SAURABH</a> -->
+      <!-- <a class="char-style bg-animation ch-s"></a>
+      <a class="char-style bg-animation ch-a"></a>
+      <a class="char-style bg-animation ch-u"></a>
+      <a class="char-style bg-animation ch-r"></a>
+      <a class="char-style bg-animation ch-a"></a>
+      <a class="char-style bg-animation ch-b"></a>
+      <a class="char-style bg-animation ch-h"></a> -->
+
+      <a class="char-style bg-animation ch-a"></a>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+      <script>
+        function init(message) {
+          var charArr = message.toLowerCase().split('');
+          var charCount = charArr.length;
+          var textIndex = 0;
+
+          $('.char-style').addClass(`ch-${charArr[textIndex]}`);
+
+          $('.char-style').on('click', function() {
+            var $self = $(this);
+            $self.removeClass('bg-animation');
+            $self.addClass('rotate-and-sink');
+
+            setTimeout(function() {
+              $self.removeClass(`ch-${charArr[textIndex]}`);
+              textIndex++;
+              if(textIndex === charCount) textIndex = 0;
+              $self.addClass(`ch-${charArr[textIndex]}`);
+            }, 1000);
+
+            setTimeout(function() {
+              $self.removeClass('rotate-and-sink');
+              $self.addClass('bg-animation');
+            }, 2000);
+
+          });
+        }
+
+        $(function(){
+          init('abcdefghijklmnopqrstuvwxyz');
+          //init('abc');
+        });
+
+      </script>
+    </body>
+</html>

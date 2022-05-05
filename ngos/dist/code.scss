@@ -1,0 +1,102 @@
+/*
+shared variable
+*/
+
+$headers: h1, h2, h3, h4, h5, h6;
+
+@each $head in $headers {
+  #{$head} {
+    font-size: 20px;
+  }
+}
+
+@mixin boxShadow ($shadow) {
+  -wbkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -o-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+
+.content {
+  @include boxShadow(0 0 10px #aaa);
+}
+
+$headerMap: (
+  h1: 50px,
+  h2: 40px,
+  h3: 30px,
+  h4: 20px,
+  h5: 10px
+);
+
+@each $h1, $val in $headerMap {
+  #{$h1} {
+    font-size: $val;
+  }
+}
+
+.fabric {
+    .vs {
+        %h1 {
+            color: black;
+        }
+        h1 {
+            @extend %h1;
+        }
+    }
+    .pink {
+        %h1 {
+            color: pink;
+        }
+        h1 {
+            @extend %h1;
+        }
+    }
+}
+
+/*
+Pattern Code
+*/
+
+$size: 50px;
+:root {
+    --size: 10px;
+}
+
+@function shadow($dots) {
+    $shadow: null;
+    @for $y from 0 through $dots {
+        @for $x from 0 through $dots {
+            $shadow: $shadow, $size*$x $size*$y 0 rgba(255, 255, 255, 0.05);
+        }
+    }
+    @return $shadow;
+}
+
+.dot-view {
+    height: 400px;
+    width: 900px;
+    overflow: hidden;
+    background: #000;
+    margin: auto;
+    .dot {
+        position: relative;
+        width: 0;
+        background: transparent;
+        border-radius: 50%;
+        margin: 5px;
+        padding: var(--size);
+        box-shadow: shadow(15);
+    }
+}
+
+@mixin mobile {
+    @media only screen and (max-width: 600px) {
+        @content;
+    }
+}
+
+@include mobile {
+    background: red
+}

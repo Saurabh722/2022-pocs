@@ -1,0 +1,9 @@
+{
+  "database": {
+	"rules": "database.rules.json"
+  },
+ "hosting": {
+	"site": "helping-hands-ad3c1",
+	"public": "public"
+  }
+}

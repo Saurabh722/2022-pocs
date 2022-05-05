@@ -1,0 +1,15 @@
+%h1 {
+	color: red;
+}
+
+& {
+	h1 {
+		@extend %h1;
+	}
+}
+
+.fabric {
+	&-h1-typography-element {
+		@extend %h1;
+	}
+}

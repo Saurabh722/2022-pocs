@@ -1,0 +1,21 @@
+{
+ "name": "fab",
+ "version": "1.0.0",
+ "description": "npm project template",
+ "main": "cli.js",
+ "bin": {
+  "fab": "./cli.js"
+ },
+ "preferGlobal": true,
+ "private": false,
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1"
+ },
+ "author": "Saurabh Sharma",
+ "license": "ISC",
+ "dependencies": {
+  "enquirer": "^2.3.2",
+  "fs-extra": "^5.0.0",
+  "inquirer": "^5.1.0"
+ }
+}

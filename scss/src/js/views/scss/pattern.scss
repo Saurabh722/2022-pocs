@@ -1,0 +1,44 @@
+$size: 50px;
+:root {
+    --size: 107px;
+}
+
+@function ball($points, $y) {
+    $shadow: null;
+    @for $i from 0 through $points {
+        $shadow: $shadow, ($size + 10)*$i ($size + 10)*$y 0 rgba(255, 255, 255, 0.05);
+    }
+    @return $shadow;
+}
+
+@function shadow($row, $col) {
+    $shadow: null;
+    @for $k from 0 through $row {
+        $shadow: $shadow, ball($col, $k);
+    }
+    @return $shadow;
+}
+
+.dot-view {
+    height: 99%;
+    width: 900px;
+    overflow: hidden;
+    background: #000;
+    margin: auto;
+    .dot {
+        position: relative;
+        left: -400px;
+        top: -400px;
+        padding: 0;
+        width: 0;
+        background: transparent;
+        border-radius: 50%;
+        margin: 5px;
+        //transition: all 20s;
+        padding: var(--size);
+        box-shadow: shadow(20, 21);
+    }
+    &:hover .dot {
+        // padding: 200px;
+    }
+}

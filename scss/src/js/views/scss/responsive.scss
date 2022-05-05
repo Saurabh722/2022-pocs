@@ -1,0 +1,283 @@
+.responsive {
+    margin: 0;
+    background: url("https://dm.victoriassecret.com/imagefeatures/0x0/1268320711434/090718-home-sleep.jpg");
+    background-size: 100%;
+    height: 2000px;
+
+    @media (min-width: 900px) {
+        .menu {
+            font-size: 1em;
+
+            ul {
+                display: flex;
+                justify-content: space-between;
+                max-width: 1180px;
+            }
+        }
+    }
+
+    .mob-logo {
+        display: none;
+        z-index: 2;
+        position: absolute;
+        width: 45%;
+        margin: auto;
+        left: 50%;
+        padding-top: 1.1em;
+        transform: translateX(-50%);
+    }
+
+    .responsive-header {
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+
+        .logoarea {
+            height: 70px;
+            background-color: #fff;
+            text-align: center;
+            padding: 40px;
+
+            img {
+                width: 300px;
+            }
+        }
+    }
+
+    .menu {
+        padding: 0.5em;
+        background: #000;
+        border-bottom: 1px solid #fff;
+        box-shadow: 0 0 5px #aaa;
+
+        >ul {
+            transition: max-height .25s linear;
+        }
+        ul {
+            margin: auto;
+            padding: 0;
+            text-align: center;
+        }
+        li {
+            transition: visibility .25s linear;
+            display: inline-block;
+            padding: .45em 1.1em;
+            margin: 0 .3em;
+            position: relative;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        .submenu-checkbox {
+            display: none;
+        }
+    }
+    @media (min-width: 501px) {
+        .menu {
+            li {
+                ul {
+                    display: block;
+                    position: absolute;
+                    margin-top: 1px;
+                    background: rgba(0, 0, 0, 0.8);
+                    width: 230px;
+                    border-radius: 5px;
+                    left: 50%;
+                    top: 30px;
+                    border: 1px solid #fff;
+                    padding: 10px 0;
+                    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+                    transform: translate(-50%, -100%);
+                    transition: all 0.5s;
+                    z-index: -1;
+                }
+                &:hover ul {
+                    transform: translate(-50%, 14px);
+                }
+                li {
+                    margin: -1px 0 0 0;
+                    box-sizing: border-box;
+                    width: 100%;
+                    font-size: 14px;
+                    cursor: pointer;
+                }
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .menu {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        min-height: 34px;
+
+        .navbar-handle {
+            position: absolute;
+            font-size: 1.2em;
+            top: 0.7em;
+            left: 12px;
+            transition: all 0.5s;
+            z-index: 10;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .logoarea {
+            display: none;
+        }
+
+        .mob-logo {
+            display: block;
+        }
+
+        .menu {
+            top: 0;
+            max-height: 34px;
+            overflow: visible;
+
+            >ul {
+                height: 700px;
+                max-height: 700px;
+                position: absolute;
+                margin-left: -8px;
+                display: flex;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.8);
+                width: 90%;
+                top: 51px;
+                box-shadow: 0 0 15px #555;
+                transform: translateX(-103%);
+                transition: all 0.5s;
+
+                >li {
+                    border-bottom: 1px solid #fff;
+
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: all 0.5s ease-in-out;
+                    }
+
+                    .submenu-checkbox {
+                        & + .submenu-label {
+                            position: absolute;
+                            left: 89%;
+                            top: 5px;
+                            width: 30px;
+                            height: 30px;
+                            background: #fff;
+                            color: #000;
+                            border-radius: 50%;
+                            box-shadow: inset 0 0 3px #333;
+
+                            &:before,
+                            &:after {
+                                position: absolute;
+                                top: 13px;
+                                left: 7px;
+                                width: 15px;
+                                content: ' ';
+                                border-top: 3px solid #555;
+                                transition: all 0.5s linear 0.3s;
+                            }
+
+                            &:after {
+                                transform: rotateZ(90deg);
+                            }
+                        }
+
+                        &:checked + .submenu-label {
+                            line-height: 14px;
+
+                            &:after {
+                                transform: rotateZ(0deg);
+                            }
+
+                            & + ul {
+                                max-height: 150px;
+                            }
+                        }
+                    }
+                }
+            }
+            li {
+                visibility: visible;
+                display: block;
+                padding: 0.5em 0.6em;
+                text-align: left;
+            }
+            li {
+                ul {
+                    margin-top: 0.5em;
+                }
+            }
+            .navbar-handle {
+                display: block;
+            }
+        }
+        #navbar-checkbox:checked+.menu {
+            >ul {
+                transform: translateX(0);
+            }
+
+            .navbar-handle {
+                border-color: transparent;
+                left: calc(100% - 40px);
+
+                &::after,
+                &::before {
+                    left: 8px;
+                }
+
+                &::after {
+                    top: 0.395em;
+                    transform: rotateZ(-45deg);
+                }
+
+                &::before {
+                    top: 0.392em;
+                    transform: rotateZ(45deg);
+                }
+            }
+        }
+    }
+    .navbar-checkbox {
+        display: none;
+    }
+    .navbar-handle {
+        $height: 45px;
+        display: none;
+        cursor: pointer;
+        position: relative;
+        font-size: $height;
+        padding: .5em 0;
+        height: 0;
+        width: 1em * 75px / $height;
+        border-top: 2px solid #fff;
+        transition: all 0.5s linear 0.3s;
+
+        &:before,
+        &:after {
+            position: absolute;
+            left: 0;
+            right: 0;
+            content: ' ';
+            border-top: 2px solid #fff;
+            transition: all 0.5s linear 0.3s;
+        }
+
+        &:before {
+            top: 1em * 17px / $height;
+        }
+
+        &:after {
+            top: 1em * 40px / $height;
+        }
+    }
+}

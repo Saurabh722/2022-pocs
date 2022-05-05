@@ -1,0 +1,12 @@
+{
+	"$schema": "http://flagship.lbidts.com/schemas/fabric.json",
+	"key": "component-voice-assistant",
+	"type": "components",
+	"name": "VS Voice Assistant",
+	"description": "VS Voice Assistant",
+	"keywords": "voice,assistant,component,demo",
+	"documentation": "#",
+	"usage": "#",
+	"acceptance": "#",
+	"responsive": true
+}

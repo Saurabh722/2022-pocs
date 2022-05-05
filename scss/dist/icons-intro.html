@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Icon Intro</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bundle.css">
+
+	<style>
+		.example {
+			top: 60%;
+			position: relative;
+			text-align: center;
+			display: none;
+		}
+
+		.show {
+			display: block;
+		}
+	</style>
+</head>
+
+<body class="animation">
+	<div class="typeContainer">
+		<div class="view typewriter">
+			<div class="container"><h1>Font Icons.</h1></div>
+			<br/><br/>
+		</div>
+        <div class="container example" id="example"><h1><a href="/icons.html" target="_blank">Font Icons Example.</a></h1></div>
+        <div class="container example" id="createIconFonts"><h1><a href="https://icomoon.io/app/#/select" target="_blank">You can create your own fonts.</a></h1></div
+	</div>
+	<script>
+		function init() {
+			var typeContainers = document.getElementsByClassName("typeContainer");
+
+			for (var i = 0; i < typeContainers.length; i++) {
+				typeContainers[i].addEventListener('click', function() {
+					this.className = "typeContainer type-animation";
+					setTimeout(function() {
+                        document.getElementById("example").className = "container example show";
+                        document.getElementById("createIconFonts").className = "container example show";
+					}, 4000);
+				}, false);
+			}
+		}
+
+		window.onload = init;
+	</script>
+</body>
+</html>

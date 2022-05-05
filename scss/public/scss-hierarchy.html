@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>My Site</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bundle.css">
+</head>
+
+<body class="fabric pink">
+	<div class="dialog" id="vs-overlay">
+		<h1>SCSS hierarchy</h1>
+		<div class="controls">
+			<button id="reset" class="btn">Reset</button>
+			<button id="minify-graph" class="btn">Toggle Compress</button>
+			<button id="show-graph" class="btn">Toggle Graph</button>
+		</div>
+		<div id="scss-files" class="blocks">
+			<div id="file-hierarchy">
+				<ul id="hierarchy-display">
+					<li>
+						<a class="file-btn" data-path="current-pasted-file" data-clickable="false">Pasted SCSS</a>
+						<ul></ul>
+					</li>
+				</ul>
+
+				<textarea id="style-code"></textarea>
+			</div>
+			<div id="file-data"></div>
+		</div>
+		<div id="style-content"></div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="bundle.js"></script>
+</body>
+
+</html>

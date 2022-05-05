@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Animation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bundle.css">
+</head>
+
+<body class="animation">
+	<div class="typeContainer">
+		<div class="view typewriter">
+			<div class="container"><h1>With SCSS life become much easier.</h1></div>
+		</div>
+	</div>
+	<script>
+		function init() {
+			var typeContainers = document.getElementsByClassName("typeContainer");
+
+			for (var i = 0; i < typeContainers.length; i++) {
+				typeContainers[i].addEventListener('click', function() {
+					this.className = "typeContainer type-animation";
+				}, false);
+			}
+		}
+
+		window.onload = init;
+	</script>
+</body>
+</html>

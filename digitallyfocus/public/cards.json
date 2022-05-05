@@ -1,0 +1,112 @@
+{
+	"id": "neXt",
+	"title": "neXt cards",
+	"pages": {
+		"header": {
+			"logoarea": "Digitally&nbsp;Focus",
+			"menus": [
+				{
+					"name": "Home",
+					"link": "#home",
+					"subMenus": []
+				},
+				{
+					"name": "About Us",
+					"link": "#about-us",
+					"subMenus": []
+				},
+				{
+					"name": "Services",
+					"link": "services-tab",
+					"subMenus": [
+						{
+							"name": "Customer Testimonials",
+							"link": "#customer-testimonials"
+						},
+						{
+							"name": "Marketing Consultant",
+							"link": "#marketing-consultant"
+						},
+						{
+							"name": "Designs & Video",
+							"link": "#designs-video"
+						}
+					]
+				},
+				{
+					"name": "Contacts",
+					"link": "#contact-us",
+					"subMenus": []
+				}
+			]
+		},
+		"home": {
+			"id": "home",
+			"title": "digitally focus",
+			"text": "Good Work on Markeing and Designing",
+			"banner": "banner 1",
+			"thumbnail": "img/card1.png",
+			"description": "Marketing & Graphic services. Powerful tools grow your business. We have developed some very to photographs, there are a number of inexpensive cameras on the market that also",
+			"subdescription": "Undertakes, therefore, a great to-morrow or the not to be the street of it is",
+			"link": "card 1 url"
+		},
+		"views": [
+			{
+				"id": "customer-testimonials",
+				"title": "CUSTOMER TESTIMONIALS",
+				"text": "text 2",
+				"banner": "banner 2",
+				"class": "bgimg-2",
+				"thumbnail": "img/card2.png",
+				"description": "Marketing & Graphic services. Powerful tools grow your business. We have developed some very to photographs, there are a number of inexpensive cameras on the market that also",
+				"subdescription": "",
+				"link": "card 2 url"
+			},
+			{
+				"id": "marketing-consultant",
+				"title": "Marketing consultant",
+				"text": "text 3",
+				"banner": "banner 3",
+				"class": "bgimg-3",
+				"thumbnail": "img/card3.png",
+				"description": "They are skilled in marketing, business, communications, and psychology. There are times that a company seeks to outsource their marketing efforts. Often, when a company does this, they seek out marketing consultants.",
+				"subdescription": "",
+				"link": "card 3 url"
+			},
+			{
+				"id": "designs-video",
+				"title": "Designs & Video",
+				"text": "text 4",
+				"banner": "banner 4",
+				"class": "bgimg-4",
+				"thumbnail": "img/card4.png",
+				"description": "Design and development. The design and development process should examine all the potential risks and hurdles you will need to overcome to get the product to market.",
+				"subdescription": "",
+				"link": "card 4 url"
+			}
+		],
+		"contactme": {
+			"id": "contact-us",
+			"title": "CONTACT ME",
+			"description": "Want me to help you with your small business marketing? Get in touch, let’s discuss the details and possible scenarios for a collaboration.",
+			"email": "peter@digitallyfocus.com"
+		},
+		"footer": {
+			"phones": {
+				"title": "contact",
+				"contact":["+91-8149900900", "+91-8149900900"]
+			},
+			"emails": {
+				"title": "Emails",
+				"contact":["peter@digitallyfocus.com", "saurabh@digitallyfocus.com"]
+			},
+			"joinUs": {
+				"title": "SUBSCRIBE",
+				"contact": ["career@digitallyfocus.com", "careerdigitallyfocus@facebook.com"]
+			},
+			"thumbnail": "img/card4.png",
+			"year": "2019",
+			"company": "DIGITALLY FOCUS"
+		}
+	}
+}

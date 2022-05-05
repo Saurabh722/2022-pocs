@@ -1,0 +1,86 @@
+{
+    "id": "neXt",
+    "title": "neXt NGOs",
+    "ngos": [
+        {
+            "id": "NGO 1",
+            "title": "ngo1 NGOs",
+            "banner": "banner 1",
+            "thumbnail": "img/ngo1.png",
+            "text": "text 1",
+            "link": "NGO 1 url"
+        },
+        {
+            "id": "NGO 2",
+            "title": "ngo2 NGOs",
+            "banner": "banner 2",
+            "thumbnail": "img/ngo2.png",
+            "text": "text 2",
+            "link": "NGO 2 url"
+        },
+        {
+            "id": "NGO 3",
+            "title": "ngo3 NGOs",
+            "banner": "banner 3",
+            "thumbnail": "img/ngo3.png",
+            "text": "text 3",
+            "link": "NGO 3 url"
+        },
+        {
+            "id": "NGO 4",
+            "title": "ngo4 NGOs",
+            "banner": "banner 4",
+            "thumbnail": "img/ngo4.png",
+            "text": "text 4",
+            "link": "NGO 4 url"
+        },
+        {
+            "id": "NGO 5",
+            "title": "ngo5 NGOs",
+            "banner": "banner 5",
+            "thumbnail": "img/ngo5.png",
+            "text": "text 5",
+            "link": "NGO 5 url"
+        },
+        {
+            "id": "NGO 6",
+            "title": "ngo6 NGOs",
+            "banner": "banner 6",
+            "thumbnail": "img/ngo6.png",
+            "text": "text 6",
+            "link": "NGO 6 url"
+        },
+        {
+            "id": "NGO 7",
+            "title": "ngo7 NGOs",
+            "banner": "banner 7",
+            "thumbnail": "img/ngo7.jpg",
+            "text": "text 7",
+            "link": "NGO 7 url"
+        },
+        {
+            "id": "NGO 8",
+            "title": "ngo8 NGOs",
+            "banner": "banner 8",
+            "thumbnail": "img/ngo8.jpg",
+            "text": "text 8",
+            "link": "NGO 8 url"
+        },
+        {
+            "id": "NGO 9",
+            "title": "ngo9 NGOs",
+            "banner": "banner 9",
+            "thumbnail": "img/ngo9.jpg",
+            "text": "text 9",
+            "link": "NGO 9 url"
+        },
+        {
+            "id": "NGO 10",
+            "title": "ngo10 NGOs",
+            "banner": "banner 10",
+            "thumbnail": "img/ngo10.jpg",
+            "text": "text 10",
+            "link": "NGO 10 url"
+        }
+    ]
+}

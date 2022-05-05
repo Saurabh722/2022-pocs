@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+      <meta charset="UTF-8">
+      <title>Text Animation</title>
+      <style>
+            body {
+                background: #000;
+            }
+
+            .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7 {
+                background: url(http://verdewall.com/wp-content/uploads/2016/08/Hd-Backgrounds-2HA.jpg);
+            }
+
+            .ch-s {
+                -webkit-text-stroke: 0.08em transparent;
+                background: url(https://humaan.com/wp-content/themes/humaan/case-study-assets/_hero/met.jpg);
+            }
+
+            .ch-s:after {
+                content: 'S';
+            }
+
+
+            .char-style,
+            .text-style {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotateZ(0);
+                z-index: 300;
+                width: 100%;
+                margin: 0;
+                font-family: sans-serif;
+                font-weight: bolder;
+                text-align: center;
+                opacity: 1;
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                cursor: pointer;
+            }
+
+            .text-style,
+            .char-style {
+                font-size: 10em;
+                background-size: auto;
+                background-position: 0 20%;
+                transition: left 600ms, transform 300ms, color 300ms; 
+            }
+
+            .char-style {
+                font-size: 5em;
+            }
+
+            
+
+            .text-1 {
+                left: 20%;
+            }
+
+            .text-2 {
+                left: 30%;
+            }
+
+            .text-3 {
+                left: 40%;
+            }
+
+            .text-4 {
+                left: 50%;
+            }
+
+            .text-5 {
+                left: 60%;
+            }
+
+            .text-6 {
+                left: 70%;
+            }
+
+            .text-7 {
+                left: 80%;
+            }
+
+            .text-merge {
+                color: #fff;
+                left: 50%;
+            }
+
+            .text-merge.text-1,
+            .text-merge.text-2,
+            .text-merge.text-3 {
+                transform: translate(-50%, -50%) rotateZ(30deg);
+            }
+
+            .text-merge.text-5,
+            .text-merge.text-6,
+            .text-merge.text-7 {
+                transform: translate(-50%, -50%) rotateZ(-30deg);
+            }
+
+            .text-container {
+                
+            }
+
+            .circle {
+                position: absolute;
+                margin: auto;
+                top: 50%;
+                left: 50%;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: #fff;
+                transform: translate(-50%, -50%) rotateZ(0);
+                opacity: 0;
+                transition: all 600ms; 
+            }
+
+            .text-merge.circle {
+                width: 154px;
+                height: 154px;
+                opacity: 1;
+            }
+
+            .text-merge.hidden,
+            .hidden {
+                opacity: 0;
+                transition: opacity 300ms; 
+            }
+
+            .bg-animation {
+                animation-name: imageAnimation;
+                animation-iteration-count: infinite;
+                animation-duration: 10s;
+                animation-timing-function: linear;
+            }
+
+            .after-animation {
+                font-size: 20em;;
+                -webkit-text-stroke: 0.06em transparent;
+                transform: translate(-50%, -50%) rotateZ(0);
+            }
+
+            .rotate-and-sink {
+                transition: -webkit-text-stroke 2s;
+                animation-iteration-count: 1;
+                animation-duration: 2s;
+                animation-delay: 600ms;
+                animation-name: rotateAndSink;
+                animation-timing-function: linear;
+                animation-fill-mode: forwards;
+                transition: -webkit-text-stroke 600ms;
+            }
+
+            @keyframes imageAnimation {
+                0%{background-position: 0 0;}
+                20%{background-position: 40% 20%;}
+                40%{background-position: 60% 60%;}
+                60%{background-position: 40% 20%;}
+                80%{background-position: 20% 20%;}
+                100%{background-position: 0 0;}
+            }
+
+            @keyframes rotateAndSink {
+                0% { 
+                    font-size: 5em;
+                    transform: translate(-50%, -50%) rotateZ(0deg);
+                }
+                100% {
+                    font-size: 20em;;
+                    transform: translate(-50%, -50%) rotateZ(360deg);
+                }
+            }
+
+      </style>
+    </head>
+
+    <body>
+        <div class="text-container">
+            <a class="char-style bg-animation ch-s hidden"></a>
+            <a class="text-style bg-animation text-1">S</a>
+            <a class="text-style bg-animation text-2">A</a>
+            <a class="text-style bg-animation text-3">U</a>
+            <a class="text-style bg-animation text-4">R</a>
+            <a class="text-style bg-animation text-5">A</a>
+            <a class="text-style bg-animation text-6">B</a>
+            <a class="text-style bg-animation text-7">H</a>
+            <a class="text-style bg-animation text-7">H</a>
+            <a class="circle"></a>
+            
+            
+        </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+      <script>
+        function init() {
+          var $texts = $('.text-style, .circle');
+
+          $texts.on('click', function() {
+              console.log('heelo');
+            $texts.addClass('text-merge');
+            setTimeout(function(){
+                $('.text-merge').addClass('hidden');
+                $('.char-style').toggleClass('hidden').addClass('rotate-and-sink');
+            }, 600);
+
+            setTimeout(function(){
+                $('.char-style').toggleClass('rotate-and-sink').addClass('after-animation');
+            }, 4000);
+          });
+        }
+
+        $(function(){
+          //init('abcdefghijklmnopqrstuvwxyz');
+          init();
+        });
+
+      </script>
+    </body>
+</html>

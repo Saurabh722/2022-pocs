@@ -1,0 +1,526 @@
+@mixin mobile {
+    @media only screen and (max-width: 600px) {
+        @content;
+    }
+}
+
+@mixin non-device {
+    @media only screen and (max-width: 1025px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin tablet_portrait {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin non-mobile {
+    @media only screen and (min-width: 740px) {
+        @content;
+    }
+}
+
+body {
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    #page {
+        padding-top: 160px;
+        max-width: 1125px;
+        margin: auto;
+    }
+
+    @include mobile {
+        #page {
+            width: 100%;
+            padding-top: 52px;
+        }
+    }
+
+    #top_nav {
+        background: #fff;
+    }
+
+    #trend_capsule {
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+        .main_banner {
+            height: 633px;
+            overflow: hidden;
+
+            .overlay_image {
+                height: 633px;
+            }
+        }
+        .has-video {
+            .overlay_image {
+                display: flex;
+                width: 100%;
+                position: absolute;
+                z-index: 5;
+                min-height: 400px;
+                background-size: 100%;
+                .play_button {
+                    position: relative;
+                    background-repeat: repeat;
+                    background-position: 190px 60px;
+                    height: 60px;
+                    width: 60px;
+                    margin: auto;
+                    display: block;
+                    &:hover {
+                        background-position: 70px 60px;
+                    }
+                }
+            }
+        }
+        .nav-container {
+            width: 100%;
+            max-width: 1125px;
+            transition: position 0.5s;
+            overflow: hidden;
+
+            >ul {
+                display: flex;
+                list-style: none;
+                background: white;
+                overflow: hidden;
+                li {
+                    display: inline-block;
+                    box-sizing: border-box;
+                    border-left: 1px solid white;
+                    padding: 0;
+                    width: 99%;
+                    min-height: 60px;
+                    font-size: 0;
+                    img {
+                        width: 100%;
+                    }
+                    &:first-child {
+                        border-left: 0;
+                    }
+                    .normal,
+                    .onhover {
+                        display: block;
+                        position: relative;
+                        transition: transform 0.5s;
+                    }
+                }
+            }
+            &.fixed-bottom {
+                position: fixed;
+                bottom: 0;
+                z-index: 100;
+            }
+        }
+        .flex_panel {
+            display: flex;
+            align-items: center;
+        }
+        section {
+            padding: 40px;
+            box-sizing: border-box;
+            .image-panel,
+            .text-panel,
+            .video_panel,
+            .text-img {
+                position: relative;
+                transition: all 0.3;
+            }
+            .image-panel {
+                height: 380px;
+                width: 57%;
+                left: 100px;
+                margin-bottom: 20px;
+                img {
+                    position: absolute;
+                    &:nth-child(1) {
+                        opacity: 0;
+                    }
+                    &:nth-child(2) {
+                        transform: translate( 30px, 30px);
+                    }
+                }
+            }
+            .text-panel {
+                width: 40%;
+                padding-left: 24px;
+                box-sizing: border-box;
+                right: 100px;
+                .heading {
+                    display: inline-flex;
+                    align-items: center;
+                    flex-direction: column;
+                    margin-bottom: 10px;
+                }
+                h1 {
+                    position: relative;
+                    font-size: 60px;
+                    line-height: 48px;
+                    margin: 5px 0;
+                    transition: all 0.3;
+
+                    &:first-child {
+                        transform: translateX(-100px);
+                    }
+                    &:last-child {
+                        transform: translateX(200px);
+                    }
+                }
+            }
+            .video_panel {
+                height: 445px;
+                width: 70%;
+                right: 200px;
+            }
+            .text-img {
+                width: 30%;
+                left: 200px;
+                z-index: 10;
+            }
+            .carousel_panel {
+                width: 100%;
+                .product_row {
+                    margin: 0 auto;
+                }
+                h2 {
+                    line-height: 50px;
+                }
+                li {
+                    width: 164px;
+                }
+            }
+            .product-link {
+                padding: 15px 0;
+                text-align: center;
+                a {
+                    padding: 12px 50px 10px
+                }
+            }
+        }
+        .brand-container {
+            max-width: 814px;
+            margin: 20px auto 50px;
+            .title {
+                text-align: center;
+                font-size: 40px;
+                line-height: 40px;
+                margin: 20px auto;
+            }
+            .flex_panel {
+                flex-wrap: wrap;
+                align-items: flex-start;
+            }
+            .brand_logo {
+                display: inline-block;
+                margin: 40px 35px 0 0;
+                box-sizing: border-box;
+                overflow: hidden;
+                cursor: pointer;
+                .brand_img,
+                .disc {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                }
+                .disc {
+                    padding: 8px;
+                    line-height: 18px;
+                }
+            }
+        }
+        .seo-text-container {
+            width: 902px;
+            margin: 3px auto 40px;
+            h1 {
+                margin-bottom: 20px;
+            }
+        }
+        #trend_loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            z-index: 99999;
+            background: white;
+            .loading {
+                margin: auto;
+                span {
+                    width: 100%;
+                    text-align: center;
+                    font-size: 50px;
+                }
+            }
+        }
+        @include non-device {
+            .main_banner {
+                height: 633px;
+                &.has-video .overlay_image {
+                    height: 633px;
+                }
+                iframe {
+                    height: 633px;
+                }
+            }
+            .nav-container>ul li {
+                &:hover {
+                    .normal,
+                    .onhover {
+                        transform: translateY(-100%);
+                    }
+                }
+            }
+            .text-panel p,
+            .seo-text-container p {
+                font-size: 14px;
+                line-height: 18px;
+            }
+            .carousel_panel .custom {
+                height: 275px;
+            }
+            .brand-container {
+                .brand_logo {
+                    width: 248px;
+                    height: 140px;
+                    border: 1px solid #aaa;
+                    .brand_img,
+                    .disc {
+                        position: relative;
+                        height: 140px;
+                        cursor: pointer;
+                    }
+                    .disc {
+                        top: -146px;
+                        color: black;
+                        font-size: 14px;
+                        opacity: 0;
+                        background: rgba(0, 0, 0, 0.75);
+                        transition: opacity 0.5s;
+                        p {
+                            text-align: center;
+                            transform: translateY(100%);
+                            transition: transform 0.3s, color 0.3s;
+                        }
+                    }
+                    &:hover .disc {
+                        color: white;
+                        opacity: 1;
+                        p {
+                            transform: translateY(0);
+                        }
+                    }
+                }
+            }
+        }
+        @include non-mobile {
+            .nav-container {
+                overflow: hidden;
+                >ul li {
+                    &.active {
+                        .normal,
+                        .onhover {
+                            transform: translateY(-100%);
+                        }
+                    }
+                }
+            }
+            .brand-container .brand_logo:nth-child(3n) {
+                margin-right: 0;
+            }
+        }
+        @include tablet {
+            .main_banner {
+                height: 565px;
+                &.has-video .overlay_image,
+                iframe {
+                    height: 565px;
+                }
+            }
+            .nav-container {
+                &.fixed-bottom {
+                    left: 0;
+                    bottom: -1px;
+                }
+            }
+            section {
+                padding: 30px 20px;
+                .image-panel {
+                    height: 310px;
+                }
+                .video_panel {
+                    height: 380px;
+                    .overlay_image {
+                        min-height: 380px;
+                    }
+                }
+            }
+            .carousel_panel .custom {
+                height: 266px;
+            }
+            .brand-container .brand_logo {
+                width: 240px;
+                max-height: 270px;
+                margin: 40px 47px 0 0;
+                font-size: 16px;
+                .brand_img {
+                    border: 1px solid #ccc;
+                }
+            }
+            .seo-text-container {
+                width: 100%;
+            }
+        }
+        @include tablet_portrait {
+            .main_banner {
+                height: 424px;
+                &.has-video .overlay_image,
+                iframe {
+                    height: 424px;
+                }
+            }
+            .nav-container.fixed-bottom {
+                left: 0;
+            }
+            section {
+                .text-panel h1 {
+                    font-size: 26px;
+                    line-height: 26px;
+                    margin: 6px 0;
+                }
+                .image-panel {
+                    height: 235px;
+                }
+                .video_panel {
+                    height: 290px;
+                    .overlay_image {
+                        min-height: 290px;
+                    }
+                }
+            }
+            .brand-container .brand_logo {
+                margin: 40px 16px 0 0;
+            }
+        }
+        @include mobile {
+            .trend_container {
+                overflow: hidden;
+            }
+            .section_container.set-top {
+                margin-top: 50px;
+            }
+            .main_banner {
+                height: 216px;
+                &.has-video .overlay_image,
+                iframe {
+                    height: 204px;
+                    min-height: 200px;
+                }
+            }
+            .nav-container {
+                border-top: 1px solid white;
+                border-bottom: 1px solid white;
+                overflow: hidden;
+                >ul {
+                    overflow: auto;
+                    overflow-y: hidden;
+                    flex-wrap: nowrap;
+                    li {
+                        .onhover,
+                        .normal {
+                            position: relative;
+                            min-width: 250px;
+                            opacity: 1;
+                        }
+                        .onhover {
+                            display: none;
+                        }
+                        &.active {
+                            .onhover {
+                                display: block;
+                            }
+                            .normal {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                &.fixed-bottom {
+                    left: 0;
+                    bottom: 0;
+                }
+            }
+            section {
+                padding: 0;
+                .text-panel {
+                    width: 100%;
+                    height: 244px;
+                    padding: 20px 15px;
+                    right: 0;
+                    .heading {
+                        display: flex;
+                    }
+                    h1 {
+                        font-size: 32px;
+                        line-height: 25px;
+                        margin: 6px 0;
+                    }
+                }
+                .image-panel,
+                .text-img {
+                    display: none;
+                }
+                .video_panel {
+                    width: 100%;
+                    height: auto;
+                    min-height: 205px;
+                    left: 0;
+                    .overlay_image {
+                        min-height: 205px;
+                    }
+                }
+            }
+            .brand-container {
+                .title {
+                    font-size: 32px;
+                    line-height: 32px;
+                    margin: 30px auto 0;
+                }
+                .brand_logo {
+                    width: 47%;
+                    margin: 20px 3% 0 0;
+                    &:nth-child(2n) {
+                        margin-right: 0;
+                    }
+                    .brand_img {
+                        border: 1px solid #ccc;
+                    }
+                    .disc {
+                        padding: 8px 1px 0;
+                        line-height: 16px;
+                    }
+                }
+            }
+            .seo-text-container {
+                width: 100%;
+                line-height: 16px;
+            }
+        }
+    }
+}

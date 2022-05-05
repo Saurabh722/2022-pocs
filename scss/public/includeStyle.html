@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Animation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bundle.css">
+</head>
+
+<body class="animation">
+	<div class="typeContainer">
+		<div class="view typewriter">
+			<div class="container firstline"><h1>Inline Style.</h1></div>
+			<div class="container"><h1>Inject style.</h1></div>
+			<div class="container"><h1>Multiple CSS style files.</h1></div>
+			<div class="container"><h1>Single CSS Style file.</h1></div>
+			<div class="container"><h1>CSS Media Queries.</h1></div>
+		</div>
+	</div>
+	<script>
+		function init() {
+			var typeContainers = document.getElementsByClassName("typeContainer");
+
+			for (var i = 0; i < typeContainers.length; i++) {
+				typeContainers[i].addEventListener('click', function() {
+					this.className = "typeContainer type-multiline-animation";
+				}, false);
+			}
+		}
+
+		window.onload = init;
+	</script>
+</body>
+</html>

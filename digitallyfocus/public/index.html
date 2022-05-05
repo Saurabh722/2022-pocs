@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Responsive Web Design</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bundle.css">
+	<style>
+		body,
+		html {
+			height: 100%;
+			margin: 0;
+			font: 400 15px/1.8 "Lato", sans-serif;
+			color: #777;
+		}
+
+		.page-width {
+			max-width: 1100px;
+			box-sizing: border-box;
+			margin: auto;
+		}
+
+		.title-bar {
+			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.7);
+		}
+
+		.title-bar h3 {
+			padding: 5px;
+			font-size: 13px;
+		}
+
+		.content-padding {
+			padding:50px 0;
+		}
+
+		.bgimg-1,
+		.bgimg-2,
+		.bgimg-3,
+		.bgimg-4 {
+			position: relative;
+			opacity: 0.65;
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		.bgimg-1 {
+			opacity: 0.8;
+			background-image: url("img/digital-marketing-freelancer.jpg");
+			background-position: center 1vw;
+			background-size: auto;
+			min-height: 38vw;
+		}
+
+		.bgimg-2 {
+			background-color: #218dd4;
+			background-image: url("img/customer-testimonials.jpg");
+			min-height: 400px;
+			background-size: 50%;
+			background-position: left;
+		}
+
+		.bgimg-3 {
+			background-color: #c6d5b4;
+			background-image: url("img/marketing2.png");
+			min-height: 400px;
+			background-size: 50%;
+			background-position: left;
+		}
+
+		.bgimg-4 {
+			background-color: #6ac2ce;
+			background-image: url("img/marketing3.jpg");
+			min-height: 400px;
+			background-size: 50%;
+			background-position: bottom left;
+		}
+
+		.caption {
+			position: absolute;
+			right: 10%;
+			top: 50%;
+			width: 30%;
+			text-align: center;
+			color: #000;
+			transform: translateY(-50%);
+		}
+
+		.caption span.border {
+			background-color: #111;
+			color: #fff;
+			padding: 18px;
+			font-size: 25px;
+			letter-spacing: 10px;
+		}
+
+		h3 {
+			letter-spacing: 5px;
+			text-transform: uppercase;
+			font: 20px "Lato", sans-serif;
+			color: #111;
+		}
+
+		@media (max-width: 1200px) {
+			.bgimg-1 {
+				background-image: url("img/digital-marketing-freelancer.jpg");
+				background-position: center 4vw;
+				background-size: contain;
+				min-height: 42vw;
+			}
+		}
+
+		@media (max-width: 500px) {
+			.page-width {
+				width: 100%;
+				margin: auto;
+			}
+
+			.content-padding {
+				padding: 10px;
+			}
+
+			.bgimg-1,
+			.bgimg-2,
+			.bgimg-3,
+			.bgimg-4 {
+				background-size: 100%;
+				background-attachment: scroll;
+				min-height: 200vw;
+				background-position: center top;
+			}
+
+			.caption {
+				position: relative;
+				width: 100%;
+				padding: 100vw 10px 0;
+				right: 0;
+				top: 0;
+				transform: none;
+				box-sizing: border-box;
+			}
+
+			.caption h3 {
+				font-size: 18px;
+			}
+			.bgimg-1 {
+				background-image: url("img/digital-marketing-freelancer.jpg");
+				background-position: center 50px;
+				min-height: 60vw;
+				background-attachment: fixed;
+			}
+
+			.contact-us {
+				flex-direction: column;
+			}
+
+			.contact-us .column {
+				width: 100%;
+			}
+
+			.footer ul {
+				display: block;
+				padding: 10px 15px;
+			}
+
+			.footer ul li {
+				padding-bottom: 15px;
+				border-bottom: 1px solid #fff;
+			}
+		}
+	</style>
+</head>
+
+<body class="responsive">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="bundle.js"></script>
+</body>
+
+</html>

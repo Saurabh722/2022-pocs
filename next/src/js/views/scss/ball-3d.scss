@@ -1,0 +1,67 @@
+@function ball($points, $color, $diameter) {
+    $r: $diameter/2;
+    $pts: $points/20;
+    $value: 0 0 0 0 transparent;
+    @for $i from 0 through floor($pts - 1) {
+        $deg: 360/$pts*$i;
+        $sin: sin($deg*1deg);
+        $cos: cos($deg*1deg);
+        $x: $r*$sin;
+        $y: $r*$cos;
+        $value: $value, $x+1px $y+1px 0 0 $color;
+    }
+    @return $value;
+}
+
+
+.ball-3d-view {
+    .ball {
+        position: relative;
+        width: 3px;
+        height: 3px;
+        margin: auto;
+        top: 50%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform-style: preserve-3d;
+        animation: spinBall 10s linear infinite;
+    }
+    
+    .ball_item {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: 50%;
+        width: 5px;
+        height: 5px;
+
+        @for $i from 1 through 60 {
+            &:nth-child(#{$i}) {
+                transform: rotateY(#{$i * 6}deg) rotateZ(0deg);
+                box-shadow: ball(1500, #fff, 500);
+            }
+        }
+    }
+
+    @keyframes spinBall {
+        0% {
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(60deg);
+        }
+        100% {
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(60deg);;
+        }
+    }
+
+    @keyframes spinRing {
+        0% {
+            transform: rotateY(0deg);
+        }
+        100% {
+            transform: rotateY(360deg);
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+	"name": "fabric-scss",
+	"version": "1.0.0",
+	"description": "Explore SCSS",
+	"main": "index.js",
+	"bin": {
+		"scss-hierarchy": "./index.js"
+	},
+	"scripts": {
+		"fabric-scss:client": "webpack-dev-server --open",
+		"fabric-scss:server": "node ./src/server/server.js",
+		"scss:hierarchy": "npm-run-all --parallel fabric-scss:*",
+		"build:scss-hierarchy": "webpack"
+	},
+	"keywords": [],
+	"author": "Saurabh Sharma",
+	"license": "ISC",
+	"devDependencies": {
+		"autoprefixer": "^7.2.5",
+		"babel-core": "^6.26.0",
+		"babel-loader": "^7.1.2",
+		"babel-preset-env": "^1.6.1",
+		"css-loader": "^0.28.9",
+		"extract-text-webpack-plugin": "^3.0.2",
+		"html-webpack-plugin": "^3.2.0",
+		"lost": "^8.2.0",
+		"node-sass": "^4.7.2",
+		"sass-loader": "^6.0.6",
+		"style-loader": "^0.19.1",
+		"webpack": "^3.10.0",
+		"webpack-dev-server": "^2.11.0"
+	},
+	"dependencies": {
+		"fs-extra": "^7.0.0",
+		"npm": "^5.8.0",
+		"npm-run-all": "^4.1.3"
+	}
+}

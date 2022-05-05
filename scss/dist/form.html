@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>CSS form Example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.form-page .form-container {
+			width: 40%;
+			width: 300px;
+			padding: 20px;
+			margin: auto;
+			border: 2px solid #49adbc;
+			border-radius: 5px;
+			box-shadow: 0 0 5px #aaa;
+			background: rgba(73, 173, 188, 0.15);
+		  }
+		  .form-page .form-container form button {
+			width: 100%;
+			height: 40px;
+			color: #49adbc;
+			background: rgba(187, 226, 232, 0.4);
+			border-color: #49adbc;
+			border-radius: 5px;
+			font-size: 18px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-weight: bold;
+			visibility: visible;
+			box-shadow: 0 0 5px #aaa;
+			transition: all 300ms;
+		  }
+		  .form-page .form-container form button:hover {
+			background: rgba(187, 226, 232, 0.8);
+			box-shadow: 0 0 10px #aaa;
+			cursor: pointer;
+		  }
+		  .form-page .form-container form:invalid button {
+			pointer-events: none;
+			box-shadow: none;
+			border-color: rgba(187, 226, 232, 0.7);
+			color: rgba(187, 226, 232, 0.7);
+			background: rgba(187, 226, 232, 0.1);
+		  }
+		  .form-page .form-container h3 {
+			margin: 0 0 10px;
+			color: #49adbc;
+		  }
+		  .form-page .form-container fieldset {
+			padding: 0;
+			height: 40px;
+			border: 0;
+			margin-bottom: 25px;
+		  }
+		  .form-page .form-container fieldset.with-checkbox {
+			height: 70px;
+		  }
+		  .form-page .form-container .form-label {
+			display: block;
+			line-height: 0;
+			position: relative;
+			color: #49adbc;
+			left: 6px;
+			transition: all 300ms;
+		  }
+		  .form-page .form-container input[type="checkbox"] {
+			width: 18px;
+			height: 18px;
+			margin-bottom: 10px;
+			transform: scale(1.2);
+		  }
+		  .form-page .form-container input[type="checkbox"] + label {
+			position: relative;
+			color: #49adbc;
+			top: -3px;
+			left: -3px;
+		  }
+		  .form-page .form-container input[type="checkbox"] ~ input[type="text"], .form-page .form-container input[type="checkbox"] ~ .form-label {
+			visibility: hidden;
+		  }
+		  .form-page .form-container input[type="checkbox"]:checked ~ input[type="text"], .form-page .form-container input[type="checkbox"]:checked ~ .form-label {
+			visibility: visible;
+		  }
+		  .form-page .form-container .error-msg {
+			display: none;
+			color: red;
+			font-size: 12px;
+			margin-top: 3px;
+		  }
+		  .form-page .form-container .form-input {
+			width: 100%;
+			height: 42px;
+			color: #555;
+			outline: none;
+			position: relative;
+			padding: 14px 6px 5px;
+			box-sizing: border-box;
+			border: 1px solid #49adbc;
+			border-radius: 5px;
+			box-shadow: inset 0 0 5px #aaa;
+		  }
+		  .form-page .form-container .form-input:not(:focus):invalid {
+			animation-name: shake;
+			animation-duration: 300ms;
+		  }
+		  .form-page .form-container .form-input:not(:focus):invalid ~ .form-label {
+			animation-name: shake-label;
+			animation-duration: 300ms;
+		  }
+		  .form-page .form-container .form-input.text ~ .form-label {
+			font-size: 18px;
+			top: -21px;
+		  }
+		  .form-page .form-container .form-input:required ~ .form-label:after {
+			content: "*";
+			color: red;
+			padding-left: 1px;
+		  }
+		  .form-page .form-container .form-input ~ .help-dialog {
+			width: auto;
+			max-width: 200px;
+			display: inline-block;
+			padding: 10px;
+			font-size: 12px;
+			background: #ea9905;
+			border-radius: 10px;
+			position: relative;
+			top: -62px;
+			color: #eee;
+			cursor: default;
+			opacity: 0;
+			z-index: -1;
+			transform: translateY(0);
+			transition: all 300ms;
+		  }
+		  .form-page .form-container .form-input ~ .help-dialog:empty {
+			display: none;
+		  }
+		  .form-page .form-container .form-input ~ .help-dialog:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
+			border-top-color: #ea9905;
+			border-bottom: 0;
+			margin-left: -10px;
+			margin-bottom: -10px;
+		  }
+		  .form-page .form-container .form-input ~ .error-msg {
+			display: none;
+		  }
+		  .form-page .form-container .form-input.text:not(:focus):invalid {
+			border-color: #49adbc;
+		  }
+		  .form-page .form-container .form-input.text:not(:focus):invalid ~ .form-label {
+			font-size: 18px;
+			top: -21px;
+		  }
+		  .form-page .form-container .form-input:focus {
+			border-color: #49adbc;
+			animation-name: none;
+		  }
+		  .form-page .form-container .form-input:focus ~ .form-label {
+			font-size: 11px;
+			top: -32px;
+		  }
+		  .form-page .form-container .form-input:focus ~ .error-msg {
+			display: none;
+		  }
+		  .form-page .form-container .form-input:focus ~ .help-dialog {
+			opacity: 1;
+			transform: translateY(-100%);
+			z-index: 1;
+		  }
+		  .form-page .form-container .form-input:invalid {
+			border-color: red;
+		  }
+		  .form-page .form-container .form-input:not(.text) ~ .form-label {
+			font-size: 11px;
+			top: -32px;
+		  }
+		  .form-page .form-container .form-input:not(.text):invalid ~ .form-label {
+			font-size: 11px;
+			top: -32px;
+		  }
+		  .form-page .form-container .form-input:not(.text):invalid ~ .error-msg {
+			display: block;
+		  }
+		  .form-page .form-container .form-input.text:valid ~ .form-label {
+			font-size: 11px;
+			top: -32px;
+		  }
+		  
+		  @keyframes shake {
+			0% {
+			  left: 0;
+			}
+			25% {
+			  left: -15px;
+			}
+			50% {
+			  left: 15px;
+			}
+			75% {
+			  left: -15px;
+			}
+			100% {
+			  left: 0;
+			}
+		  }
+		  @keyframes shake-label {
+			0% {
+			  left: 6px;
+			}
+			25% {
+			  left: -9px;
+			}
+			50% {
+			  left: 21px;
+			}
+			75% {
+			  left: -9px;
+			}
+			100% {
+			  left: 6px;
+			}
+		  }
+	</style>
+</head>
+
+<body class="fabric">
+	<div class="form-page">
+		<h1>CSS Form</h1>
+		<div class="form-container">
+			<form>
+				<h3>Employee Details</h3>
+				<fieldset>
+					<input type="text" class="form-input text" required/>
+					<label class="form-label">Employee ID</label>
+					<span class="error-msg">please enter employee id</span>
+				</fieldset>
+				<fieldset>
+					<input type="text" pattern="^[A-Za-z]+" class="form-input" />
+					<label class="form-label">Name</label>
+					<span class="error-msg">please enter name</span>
+				</fieldset>
+				<fieldset>
+					<input type="email" value="saurabhsharma722@live.com" class="form-input email" required/>
+					<label class="form-label">Email</label>
+					<span class="error-msg">please enter name</span>
+				</fieldset>
+				<fieldset>
+					<input type="number" value="1234" class="form-input number" required/>
+					<label class="form-label">Number</label>
+					<span class="error-msg">please enter name</span>
+				</fieldset>
+				<fieldset>
+					<input type="password" value="abc#44" pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}" class="form-input password"
+					    required/>
+					<label class="form-label">Password</label>
+					<span class="error-msg">please enter valid password</span>
+					<div class="help-dialog">Password must contain alphabets, at least a number, at least a special character and have 6 to 16 valid characters</div>
+				</fieldset>
+				<fieldset>
+					<input type="tel" value="5241810000469388" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})"
+					    class="form-input pattern" required/>
+					<label class="form-label">Credit Card</label>
+					<span class="error-msg">please enter valid card number</span>
+					<div class="help-dialog">Use only numbers for Visa, MasterCard, American Express, Diners Club, Discover, and JCB cards</div>
+				</fieldset>
+				<fieldset class="with-checkbox">
+					<input type="checkbox" value="Passport" />
+					<label>Passport</label>
+					<input type="text" value="A1234567" class="form-input" pattern="^[A-PR-WYa-pr-wy][1-9]\d\s?\d{4}[1-9]$" />
+					<label class="form-label">Passport</label>
+					<span class="error-msg">please enter valid card number</span>
+				</fieldset>
+				<fieldset>
+					<button>Submit</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

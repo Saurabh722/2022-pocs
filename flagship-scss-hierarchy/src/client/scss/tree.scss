@@ -1,0 +1,122 @@
+&.tree {
+	justify-content: center;
+	$border-width: 1px;
+	transform: rotate(180deg);
+	transform-origin: 50%;
+
+	#file-data {
+		display: none;
+	}
+
+	ul {
+		position: relative;
+		padding: 1em 0;
+		white-space: nowrap;
+		margin: 0 auto;
+		text-align: center;
+		background: #ffffff !important;
+		transition: all 1s;
+
+		&::after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+	}
+	li {
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+		list-style-type: none;
+		position: relative;
+		padding: 1em .5em 0 .5em;
+		background: #ffffff !important;
+		transition: all 1s;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 50%;
+			border-top: $border-width solid #aaa;
+			width: 50%;
+			height: 1em;
+		}
+
+		&::after {
+			right: auto;
+			left: 50%;
+			border-left: $border-width solid #aaa;
+		}
+
+		&:only-child::after,
+		&:only-child::before {
+			display: none;
+		}
+
+		&:only-child {
+			padding-top: 0;
+		}
+
+		&:first-child::before,
+		&:last-child::after {
+			border: 0 none;
+		}
+
+		&:last-child::before {
+			border-right: $border-width solid #aaa;
+			border-radius: 0 5px 0 0;
+		}
+
+		&:first-child::after {
+			border-radius: 5px 0 0 0;
+		}
+	}
+
+	ul ul::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		border-left: $border-width solid #aaa;
+		width: 0;
+		height: 1em;
+	}
+
+	li a {
+		border: $border-width solid #aaa;
+		padding: .5em .75em;
+		text-decoration: none;
+		display: inline-block;
+		border-radius: 5px;
+		color: #333;
+		position: relative;
+		transition: all 1s;
+		cursor: pointer;
+		transform: rotate(180deg);
+	}
+
+	li a:hover,
+	li a:hover + ul li a {
+		background: #009688;
+		color: #fff;
+		border: $border-width solid #009688;
+		box-shadow: 0 0 15px #333;
+
+		&:first-letter {
+			font-size: 18px;
+			color: #FFF;
+			text-transform: uppercase;
+		}
+	}
+
+	li a:hover + ul li::after,
+	li a:hover + ul li::before,
+	li a:hover + ul::before,
+	li a:hover + ul ul::before {
+		border-color: #009688;
+	}
+
+	@import './compress-tree.scss';
+}

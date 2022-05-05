@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Icons</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bundle.css">
+</head>
+
+<body class="icons">
+    <h1 style="color:cadetblue; border-bottom: 1px solid cadetblue">Font Icons</h1>
+	<div id="icon-container">
+
+	</div>
+	<script>
+		function init() {
+            var typeContainers = document.getElementById("icon-container");
+            var iconView = '';
+
+			for (var i = 0; i < 198; i++) {
+				iconView +='<span class="icon"></span>' 
+            }
+            
+            typeContainers.innerHTML = iconView;
+		}
+
+		window.onload = init;
+	</script>
+</body>
+</html>

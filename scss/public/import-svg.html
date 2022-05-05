@@ -1,0 +1,61 @@
+<!doctype>
+<html lang="en">
+
+<head>
+  <title>SVG Sprite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <style>
+    html {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+      "Droid Sans", "Helvetical Neue", sans-serif;
+      font-size: 1.125rem;
+      text-align: center
+    }
+
+    h1 {
+      font-weight: 100;
+      margin-bottom: 1em
+    }
+
+    small {
+      font-size: .34em
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      margin: .5em;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- SVG Sprite -->
+  <svg width="0" height="0" class="hidden" id="svg-sprite">
+  <script>
+    function load(url, element) {
+        req = new XMLHttpRequest();
+        req.open("GET", url, false);
+        req.send(null);
+
+        element.innerHTML = req.responseText; 
+    }
+
+    load("svg.html", document.getElementById("svg-sprite"));
+  </script>
+  <h1>
+    SVG Sprite Demo
+    <br/>
+  </h1>
+  <svg class="icon">
+    <use xlink:href="#CSS3_logo"></use>
+  </svg>
+</body>

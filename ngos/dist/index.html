@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Responsive Web Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bundle.css">
+</head>
+
+<body class="responsive">
+    <div class="responsive-header">
+        <div class="logoarea">
+            n e X t &nbsp;&nbsp;  N G O
+        </div>
+        <div class="menubar">
+            <span class="mob-logo">n e X t &nbsp;&nbsp;  N G O</span>
+            <input type="checkbox" id="navbar-checkbox" class="navbar-checkbox">
+            <nav class="menu">
+                <ul>
+                    <li>New!</li>
+                    <li>NGO's
+                        <input type="checkbox" class="submenu-checkbox" id="bra-tab">
+                        <label for="bra-tab" class="submenu-label"></label>
+                        <ul>
+                            <li>NGO 1</li>
+                            <li>NGO 2</li>
+                            <li>NGO 3</li>
+                            <li>All NGOs</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Locations
+                        <input type="checkbox" class="submenu-checkbox" id="panties-tab">
+                        <label class="submenu-label" for="panties-tab"></label>
+                        <ul>
+                            <li>Location 1</li>
+                            <li>Location 2</li>
+                            <li>Location 3</li>
+                            <li>All Locations</li>
+                        </ul>
+                    </li>
+                    <li>Gallery
+                        <input type="checkbox" class="submenu-checkbox" id="sport-tab">
+                        <label class="submenu-label" for="sport-tab"></label>
+                        <ul>
+                            <li>Gallery 1</li>
+                            <li>Gallery 2</li>
+                            <li>Gallery 3</li>
+                            <li>Gallery 4</li>
+                        </ul>
+                    </li>
+                    <li>Contacts</li>
+                </ul>
+                <label for="navbar-checkbox" class="navbar-handle"></label>
+            </nav>
+        </div>
+    </div>
+    <div id="main-page"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="bundle.js"></script>
+</body>
+
+</html>

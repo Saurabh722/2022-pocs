@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kalchi Jar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            font-family: Monospace;
+            background-color: #000;
+            color: #fff;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        #info {
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            z-index: 100;
+            display: block;
+        }
+
+        #info a {
+            color: #046;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+    <script src="js/threejs/three.js"></script>
+
+    <script src="js/libs/inflate.min.js"></script>
+    <script src="js/loaders/FBXLoader.js"></script>
+
+    <script src="js/controls/OrbitControls.js"></script>
+
+    <script src="js/Detector.js"></script>
+
+
+    <script>
+        if (!Detector.webgl) Detector.addGetWebGLMessage();
+
+        var container, controls;
+        var camera, scene, renderer, light;
+
+        var mixers = [];
+
+        init();
+        animate();
+
+        function init() {
+
+            container = document.createElement('div');
+            document.body.appendChild(container);
+
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+            camera.position.set(1, 20, 30);
+
+            controls = new THREE.OrbitControls(camera);
+            controls.target.set(0, 3, 0);
+            controls.update();
+
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xffffff);
+
+            light = new THREE.HemisphereLight(0xffffff, 0x444444);
+            light.position.set(0, 200, 0);
+            scene.add(light);
+            var loader = new THREE.FBXLoader();
+            loader.load('model/kalchi-jar.fbx', function(object) {
+
+
+            scene.add(object);
+
+            }, (ev) => {
+                console.log(ev);
+            }, (e) => {
+                console.log(e);
+            });
+
+            renderer = new THREE.WebGLRenderer();
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.shadowMap.enabled = true;
+            container.appendChild(renderer.domElement);
+
+            window.addEventListener('resize', onWindowResize, false);
+
+        }
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+
+    </script>
+
+</body>
+
+</html>

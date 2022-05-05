@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Create Custom Images</title>
+  
+  <style>
+    table {
+      margin: 30px auto;
+    }
+    
+    input {
+      height: 20px;
+      margin: 5px 10px;
+    }
+    
+    tr:last-child {
+      text-align: center;
+    }
+  
+  </style>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="js/createImgs.js"></script>
+  
+  <script>
+  
+  function downloadDataUrlFromJavascript(filename, dataUrl) {
+    var link = document.createElement("a");
+    link.download = filename;
+    link.target = "_blank";
+
+    link.href = dataUrl;
+    document.body.appendChild(link);
+    link.click();
+    
+    document.body.removeChild(link);
+    delete link;
+  }
+  
+    $(document).ready(function(){
+      $('#download_btn').click(function(e) {
+        var width = $('#img_width').val(),
+          $height = $('#img_height'),
+          $mg_label = $('#mg_label');
+          
+        if($height.val() === '') {
+          $height.val(width);
+        }
+        
+        var img_label_text = width + 'x' + $height.val();
+        
+        if($mg_label.val() === '') {
+          $mg_label.val(img_label_text);
+        }
+        
+        var dataUrl = 'https://placeholdit.imgix.net/~text?' + $('#getImg').serialize(),
+          filename = 'img_' + img_label_text;
+          
+        $('#mg_label').val('');
+        
+        downloadDataUrlFromJavascript(filename, dataUrl);
+      });
+    });
+  
+  </script>
+
+</head>
+<body>
+  <form id='getImg'>
+    <table>
+      <tr>
+        <td>Font-size:</td>
+        <td><input type='text' name='txtsize' placeholder='font-size' value='12'/></td>
+      </tr>
+        <td>Label:</td>
+        <td><input type='text' name='txt' id='mg_label' placeholder='label'/></td>
+      <tr>
+        <td>Width:</td>
+        <td><input type='text' name='w' id='img_width' placeholder='width' value='100'/></td>
+      </tr>
+      <tr>
+        <td>Height</td>
+        <td><input type='text' name='h' id='img_height' placeholder='height'/></td>
+      </tr>
+      <tr>
+        <td>background-color:</td>
+        <td><input type='text' name='bg' placeholder='background-color' value='ff99cc'/></td>
+      </tr>
+      <tr>
+        <td>Text-color:</td>
+        <td><input type='text' name='txtclr' placeholder='text-color' value='ffffff'/></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="button" id="download_btn" value="Download Image"></td>
+      </tr>
+  </table>
+  <form>
+</body>
+</html>

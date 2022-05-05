@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>CSS form Example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bundle.css">
+</head>
+
+<body class="fabric pink">
+	<div class="form-page">
+		<h1>CSS Form</h1>
+		<div class="form-container">
+			<form>
+				<h3>Employee Details</h3>
+				<fieldset>
+					<input type="text" class="form-input text" required/>
+					<label class="form-label">Employee ID</label>
+					<span class="error-msg">please enter employee id</span>
+				</fieldset>
+				<fieldset>
+					<input type="text" pattern="^[A-Za-z]+" class="form-input"/>
+					<label class="form-label">Name</label>
+					<span class="error-msg">please enter name</span>
+				</fieldset>
+				<fieldset>
+					<input type="email" value="email@gmail.com" class="form-input email" required/>
+					<label class="form-label">Email</label>
+					<span class="error-msg">please enter name</span>
+				</fieldset>
+				<fieldset>
+					<input type="number" value="1234" class="form-input number" required/>
+					<label class="form-label">Number</label>
+					<span class="error-msg">please enter name</span>
+				</fieldset>
+				<fieldset>
+					<input type="password" value="abc#44" pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}" class="form-input password" required/>
+					<label class="form-label">Password</label>
+					<span class="error-msg">please enter valid password</span>
+					<div class="help-dialog">Password must contain alphabets, at least a number, at least a special character and have 6 to 16 valid characters</div>
+				</fieldset>
+				<fieldset>
+					<input type="tel" value="5241810000469388" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})" class="form-input pattern" required/>
+					<label class="form-label">Credit Card</label>
+					<span class="error-msg">please enter valid card number</span>
+					<div class="help-dialog">Use only numbers for Visa, MasterCard, American Express, Diners Club, Discover, and JCB cards</div>
+				</fieldset>
+				<fieldset class="with-checkbox">
+					<input type="checkbox" value="Passport"/> <label>Passport</label>
+					<input type="text" value="A1234567" class="form-input" pattern="^[A-PR-WYa-pr-wy][1-9]\d\s?\d{4}[1-9]$"/>
+					<label class="form-label">Passport</label>
+					<span class="error-msg">please enter valid card number</span>
+				</fieldset>
+				<fieldset>
+					<button>Submit</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

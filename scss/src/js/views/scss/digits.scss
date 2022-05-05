@@ -1,0 +1,133 @@
+$size: 8px;
+$increment: 1;
+:root {
+    --size: 4px;
+}
+
+@function zero($x, $y) {
+    $zero: null;
+    @if(($y==31 and $x > 80 and $x < 99) or ($y==32 and $x > 79 and $x < 100) or ($y==33 and $x > 78 and $x < 101) or ($y==34 and $x > 77 and $x < 102) or ($y==35 and $x > 77 and $x < 102) or ($y > 35 and (($x > 77 and $x < 84) or ($x > 95 and $x < 102)) and $y < 60) or ($y==60 and $x > 77 and $x < 102) or ($y==61 and $x > 77 and $x < 102) or ($y==62 and $x > 78 and $x < 101) or ($y==63 and $x > 79 and $x < 100) or ($y==64 and $x > 80 and $x < 99)) {
+        $zero: $zero, ($size + 1)*$x ($size + 1)*$y 0 rgb(random(255), random(255), random(255));
+    }
+    @else {
+        $zero: $zero, ($size + 1)*$x ($size + 1)*$y 0 rgba(255, 255, 255, 1);
+    }
+    @return $zero;
+}
+
+@function one($x, $y) {
+    $one: null;
+    @if(($y==31 and $x > 86 and $x < 93) or ($y==32 and $x > 85 and $x < 93) or ($y==33 and $x > 84 and $x < 93) or ($y==34 and $x > 83 and $x < 93) or ($y==35 and $x > 83 and $x < 93) or ($y > 35 and $x > 86 and $x < 93 and $y < 60) or ($y==60 and $x > 85 and $x < 94) or ($y==61 and $x > 84 and $x < 95) or ($y==62 and $x > 83 and $x < 96) or ($y==63 and $x > 82 and $x < 97) or ($y==64 and $x > 82 and $x < 97)) {
+        $one: $one, ($size + 1)*$x ($size + 1)*$y 0 rgb(random(255), random(255), random(255));
+    }
+    @else {
+        $one: $one, ($size + 1)*$x ($size + 1)*$y 0 rgba(255, 255, 255, 1);
+    }
+    @return $one;
+}
+
+@function two($x, $y) {
+    $two: null;
+    @if(($y==31 and $x > 80 and $x < 99) or ($y==32 and $x > 79 and $x < 100) or ($y==33 and $x > 78 and $x < 101) or ($y==34 and $x > 77 and $x < 102) or ($y==35 and $x > 77 and $x < 102) or ($y > 35 and (($x > 77 and $x < 84) or ($x > 95 and $x < 102)) and $y < 39) or ($y==39 and $x > 95 and $x < 102 and $y < 60) or ($y==40 and $x > 95 and $x < 102 and $y < 60) or ($y==41 and $x > 95 and $x < 102 and $y < 60) or ($y==42 and $x > 95 and $x < 102 and $y < 60) or ($y==43 and $x > 95 and $x < 102 and $y < 60) or ($y==44 and $x > 94 and $x < 101 and $y < 60) or ($y==45 and $x > 93 and $x < 100 and $y < 60) or ($y==46 and $x > 91 and $x < 98 and $y < 60) or ($y==47 and $x > 89 and $x < 96 and $y < 60) or ($y==48 and $x > 87 and $x < 94 and $y < 60) or ($y==49 and $x > 85 and $x < 92 and $y < 60) or ($y==50 and $x > 83 and $x < 90 and $y < 60) or ($y==51 and $x > 81 and $x < 88 and $y < 60) or ($y==52 and $x > 80 and $x < 87 and $y < 60) or ($y==53 and $x > 79 and $x < 86 and $y < 60) or ($y==54 and $x > 78 and $x < 85 and $y < 60) or ($y==55 and $x > 77 and $x < 84 and $y < 60) or ($y==56 and $x > 77 and $x < 84 and $y < 60) or ($y==57 and $x > 77 and $x < 84 and $y < 60) or ($y > 57 and (($x > 77 and $x < 84) or ($x > 95 and $x < 102)) and $y < 60) or ($y==60 and $x > 77 and $x < 102) or ($y==61 and $x > 77 and $x < 102) or ($y==62 and $x > 78 and $x < 101) or ($y==63 and $x > 79 and $x < 100) or ($y==64 and $x > 80 and $x < 99)) {
+        $two: $two, ($size + 1)*$x ($size + 1)*$y 0 rgb(random(255), random(255), random(255));
+    }
+    // @if ($y > 38 and ($x + $increment) > 95 and ($x + $increment ) < 102 and $y < 60) {
+    // $increment: $increment + 1;
+    // $two: $two, ($size + 1)*$x ($size + 1)*$y 0 rgba(0, 0, 224, 1);
+    // }
+    @else {
+        $two: $two, ($size + 1)*$x ($size + 1)*$y 0 rgba(255, 255, 255, 1);
+    }
+    @return $two;
+}
+
+@function square($points, $y, $digit) {
+    $shadow: 0 0 0 transparent;
+    @for $i from 0 through $points {
+        @if($i > 65 and $y > 23 and $i < 114 and $y < 72) {
+            @if($digit=='zero') {
+                $shadow: $shadow, zero($i, $y);
+            }
+            @if($digit=='one') {
+                $shadow: $shadow, one($i, $y);
+            }
+            @if($digit=='two') {
+                $shadow: $shadow, two($i, $y);
+            }
+            @if($digit=='none') {
+                $shadow: $shadow, ($size + 1)*$i ($size + 1)*$y 0 rgb(random(255), random(255), random(255));
+            }
+        }
+    }
+    @return $shadow;
+}
+
+@function matrix($row, $col, $digit) {
+    $shadow: null;
+    @for $k from 0 through $row {
+        $shadow: $shadow, square($col, $k, $digit);
+    }
+    @return $shadow;
+}
+
+$digit-none: matrix(135, 177, 'none');
+$digit-zero: matrix(135, 177, 'zero');
+$digit-one: matrix(135, 177, 'one');
+$digit-two: matrix(135, 177, 'two');
+.square-view {
+    height: 99%;
+    width: 900px;
+    overflow: hidden;
+    background: #000;
+    margin: auto;
+    .square {
+        position: relative;
+        top: -100px;
+        left: -370px;
+        width: 0;
+        background: #fff;
+        margin: 5px;
+        padding: var(--size);
+        box-shadow: $digit-none;
+        transform-style: preserve-3d;
+        animation-iteration-count: infinite;
+        animation-duration: 30s;
+        animation-name: change-digits;
+        animation-timing-function: linear;
+    }
+    @keyframes change-digits {
+        0% {
+            box-shadow: $digit-none;
+        }
+        10% {
+            box-shadow: $digit-zero;
+        }
+        20% {
+            box-shadow: $digit-zero;
+        }
+        30% {
+            box-shadow: $digit-none;
+        }
+        40% {
+            box-shadow: $digit-one;
+        }
+        50% {
+            box-shadow: $digit-one;
+        }
+        60% {
+            box-shadow: $digit-none;
+        }
+        70% {
+            box-shadow: $digit-two;
+        }
+        80% {
+            box-shadow: $digit-two;
+        }
+        90% {
+            box-shadow: $digit-one;
+        }
+        100% {
+            box-shadow: $digit-one;
+        }
+    }
+}

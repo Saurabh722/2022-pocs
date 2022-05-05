@@ -1,0 +1,12 @@
+<div class="fabric-voice-assistant-component {{#if active}}active{{/if}}">
+	{{#if isSupported}}
+		<div class="fabric-speech-results">
+			<span class="fabric-speech-final-text">{{finalText}}</span>
+			<span class="fabric-speech-interim-text">{{interimText}}</span>
+			<p></p>
+		</div>
+		<div>
+			<button class="fabric-mic-button"></button>
+		</div>
+	{{/if}}
+</div>

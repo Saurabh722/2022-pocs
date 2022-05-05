@@ -1,0 +1,242 @@
+h1 {
+    color: #009688;
+    border-bottom: 1px solid;
+}
+
+ul:empty {
+    display: none;
+}
+
+.controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 30px;
+}
+
+#style-code {
+    padding: 10px;
+    border: 0;
+    resize: none;
+    width: 100%;
+    height: 100%;
+}
+
+#file-data {
+    display: none;
+    right: 0;
+    white-space: pre-wrap;
+    padding: 10px;
+    margin-right: 10px;
+    box-shadow: inset 0 0 10px #aaa;
+    h2 {
+        margin-top: 0;
+    }
+}
+
+#scss-files {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: auto;
+    #file-hierarchy,
+    #file-data {
+        overflow: auto;
+        top: 70px;
+        bottom: 30px;
+        border-radius: 5px;
+        border: 2px solid rgba(62, 133, 167, 0.7);
+    }
+    * {
+        transition: all 1s;
+    }
+    &.blocks {
+        #file-data {
+            width: 50%;
+        }
+        #file-hierarchy {
+            width: 46%;
+        }
+        &.full-width #file-hierarchy {
+            width: 100%;
+        }
+        #file-hierarchy,
+        #file-data {
+            position: absolute;
+        }
+        #hierarchy-display {
+            display: none;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            text-transform: lowercase;
+            width: auto;
+            display: flex;
+            border-radius: 5px;
+            margin: 10px 20px 10px 50px;
+            li {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                background: rgba(62, 133, 167, 0.2);
+                margin-left: -40px;
+                margin-bottom: 10px;
+                border: 1px solid #fff;
+                border-radius: 5px;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+                a {
+                    display: inline-block;
+                    padding: 8px 10px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+                a:hover {
+                    color: green;
+                    background: #fff;
+                    box-shadow: inset 0 0 5px #aaa;
+                }
+            }
+        }
+    }
+    &.tree {
+        $border-width: 1px;
+        $reverse: true;
+        justify-content: center;
+        @if $reverse {
+            transform: rotate(180deg);
+            transform-origin: 50%;
+        }
+        #file-data {
+            display: none;
+        }
+        ul {
+            position: relative;
+            padding: 1em 0;
+            white-space: nowrap;
+            margin: 0 auto;
+            text-align: center;
+            background: #ffffff !important;
+            transition: all 1s;
+            &::after {
+                content: '';
+                display: table;
+                clear: both;
+            }
+        }
+        li {
+            display: inline-block; // need white-space fix
+            vertical-align: top;
+            text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 1em .5em 0 .5em;
+            background: #ffffff !important;
+            transition: all 1s;
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 50%;
+                border-top: $border-width solid #aaa;
+                width: 50%;
+                height: 1em;
+            }
+            &::after {
+                right: auto;
+                left: 50%;
+                border-left: $border-width solid #aaa;
+            }
+            &:only-child::after,
+            &:only-child::before {
+                display: none;
+            }
+            &:only-child {
+                padding-top: 0;
+            }
+            &:first-child::before,
+            &:last-child::after {
+                border: 0 none;
+            }
+            &:last-child::before {
+                border-right: $border-width solid #aaa;
+                border-radius: 0 5px 0 0;
+            }
+            &:first-child::after {
+                border-radius: 5px 0 0 0;
+            }
+        }
+        ul ul::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border-left: $border-width solid #aaa;
+            width: 0;
+            height: 1em;
+        }
+        li a {
+            border: $border-width solid #aaa;
+            padding: .5em .75em;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            color: #333;
+            position: relative;
+            transition: all 1s;
+            cursor: pointer;
+            @if $reverse {
+                transform: rotate(180deg);
+            }
+        }
+        li a:hover,
+        li a:hover+ul li a {
+            background: #009688;
+            color: #fff;
+            border: $border-width solid #009688;
+            box-shadow: 0 0 15px #333;
+            &:first-letter {
+                font-size: 18px;
+                color: #FFF;
+                text-transform: uppercase;
+            }
+        }
+        li a:hover+ul li::after,
+        li a:hover+ul li::before,
+        li a:hover+ul::before,
+        li a:hover+ul ul::before {
+            border-color: #009688;
+        }
+        &.compress {
+            #hierarchy-display>li>a {
+                max-width: 800px;
+            }
+            li a {
+                top: 3px;
+                color: #ffffff;
+                max-width: 10px;
+                border-radius: 18px;
+                font-size: 0;
+                min-width: 24px;
+                overflow: hidden;
+                z-index: 5;
+                &:first-letter {
+                    font-size: 18px;
+                    color: #009688;
+                    text-transform: uppercase;
+                }
+                &:hover {
+                    max-width: 800px;
+                    font-size: 12px;
+                    &:first-letter {
+                        font-size: 12px;
+                        color: #ffffff;
+                        text-transform: lowercase;
+                    }
+                }
+            }
+        }
+    }
+}
